@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zerexei</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <main>
+      <section id="profile">
+        <p>
+          Hi, I am a Web Developer with some knowledge in System Administration
+          and Cybersecurity, I have a Bachelor’s degree in Computer Science
+          Major in Software Technology from western mindanao state university. I
+          have great expertise in creating web applications using a variety of
+          modern technologies. I am also very adequate in maintaining websites
+          and mobile apps as I am an expert in Web Development, Web Security and
+          System Administration. I always focus on producing high quality,
+          Scalable, bug free, Safe and Secure codes.
+        </p>
+        <h1>Angelo Arcillas</h1>
+        <h3>Web Developer</h3>
+      </section>
+      <section id="coming-soon">
+        <h5>Zerexei Landing Page</h5>
+        <h2>Coming Soon</h2>
+        <div></div>
+        <p>
+          <span class="days"></span>days <span class="hours"></span>h
+          <span class="minutes"></span>m <span class="seconds"></span>s
+        </p>
+      </section>
+    </main>
+
+    <script>
+      let countdown = setInterval(() => {
+        let date = new Date();
+        let nextYear = date.getFullYear() + 1;
+        let distance = new Date(`${nextYear}`, 0) - date.getTime();
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.querySelector(".days").innerText = twoDigits(days);
+        document.querySelector(".hours").innerText = twoDigits(hours);
+        document.querySelector(".minutes").innerText = twoDigits(minutes);
+        document.querySelector(".seconds").innerText = twoDigits(seconds);
+      }, 1000);
+
+      function twoDigits(key) {
+        return key.toString().length > 1 ? key : `0${key}`;
+      }
+    </script>
+  </body>
+</html>

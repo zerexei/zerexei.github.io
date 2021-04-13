@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Fira Code", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: none;
+}
+
+main {
+  text-align: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#profile {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+#profile p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+#profile h5 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  width: 20rem;
+  border-bottom: 2px solid #000;
+}
+#profile h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 640px) {
+  #profile {
+    width: 65%;
+  }
+}
+#coming-soon h2 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+#coming-soon div {
+  width: 80%;
+  padding: 2px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  background-color: #000;
+}
+
+#coming-soon p {
+  font-size: 1.5rem;
+}
+
+#coming-soon span {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 640px) {
+  #coming-soon h5 {
+    font-size: 1.5rem;
+  }
+  #coming-soon div {
+    width: 40%;
+  }
+  #coming-soon span {
+    font-size: 3rem;
+  }
+}
