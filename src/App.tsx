@@ -9,7 +9,7 @@ const App = () => {
   const toggleNavBar = () => (isVisibleNavBar ? hideNavBar() : showNavBar());
 
   return (
-    <div>
+    <div className="font-oswald">
       <header className="p-4 bg-gray-800 text-white">
         <div className="flex items-center justify-between mb-4 text-red-400">
           <div>
