@@ -1,3 +1,5 @@
+import { NavLink as NavBarLink } from "react-router-dom";
+
 type NavLinkProps = {
   url: string;
   label: string;
@@ -5,9 +7,14 @@ type NavLinkProps = {
 
 const NavLink = ({ url, label }: NavLinkProps) => {
   return (
-    <a href={url} className="p-1 hover:text-red-400">
+    <NavBarLink
+      to={url}
+      exact
+      activeClassName="text-red-400"
+      className="p-1 hover:text-red-400"
+    >
       {label}
-    </a>
+    </NavBarLink>
   );
 };
 
