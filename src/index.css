@@ -10,3 +10,10 @@
     @apply tracking-wide;
   }
 }
+
+#banner {
+  background-image: url("./assets/img/undraw_hello.svg");
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
