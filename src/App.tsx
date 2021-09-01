@@ -1,4 +1,4 @@
-import { ChevronDoubleDownIcon } from "@heroicons/react/solid";
+import { ChevronDoubleDownIcon, MailIcon } from "@heroicons/react/solid";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./components/header/Header";
@@ -8,16 +8,16 @@ const App = () => {
     <Router>
       <div className="font-oswald">
         <Header />
-        <main className="p-4">
+        <main>
           <Switch>
             <Route exact path="/">
-              <section className="p-4 text-center">
-                <div id="banner" className="p-2 mb-4">
+              <section className="mb-6 text-center">
+                <div id="banner" className="my-12">
                   <h3 className="text-3xl font-bold mb-16">
                     Welcome to my Website
                   </h3>
 
-                  <div className="w-1/3 -mb-2 mx-auto">
+                  <div className="w-1/3 pt-6 mx-auto">
                     <img
                       src="https://picsum.photos/200"
                       alt="user avatar"
@@ -25,14 +25,22 @@ const App = () => {
                     />
                   </div>
 
-                  <p className="p-2 bg-red-100 bg-opacity-50 rounded">
+                  <p className="mb-1">Web Developer</p>
+
+                  <div className="flex justify-center gap-1 mb-4">
+                    <MailIcon className="w-8 h-8" />
+                    <MailIcon className="w-8 h-8" />
+                    <MailIcon className="w-8 h-8" />
+                  </div>
+
+                  <p className="p-2 py-4 bg-red-200">
                     I am Angelo Arcillas, an aspiring web developer from the
                     philippines. I love back-end development and Cybersecurity.
                   </p>
                 </div>
 
-                <div className="inline-block p-2 border-2 border-red-400 rounded-full">
-                  <ChevronDoubleDownIcon className="w-8 h-8 text-red-400" />
+                <div className="animate-bounce inline-block p-2 text-red-400 border-2 border-red-400 rounded-full cursor-pointer hover:bg-red-400 hover:text-white hover:border-white">
+                  <ChevronDoubleDownIcon className="w-8 h-8 text-current" />
                 </div>
               </section>
             </Route>
