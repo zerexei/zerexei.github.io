@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="p-4 bg-gray-800 text-white">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between">
         <Brand />
         
         <Menu toggleNavBar={toggleNavBar} />
