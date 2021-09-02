@@ -4,17 +4,11 @@ import Card from "../Card";
 import TopProjects from "./top_project.json";
 
 const Home = () => {
-  // const php_core_tags = [
-  //   { id: 1, name: "HTML" },
-  //   { id: 2, name: "Tailwindcss" },
-  //   { id: 3, name: "Laravel" },
-  //   { id: 4, name: "Livewire" },
-  // ];
-
   return (
     <div>
       <Banner />
-      <Section name="My Top Projects">
+      <Section name="Top Projects">
+        <span id="TopProjects"></span>
         {TopProjects.map((project) => {
           return (
             <Card

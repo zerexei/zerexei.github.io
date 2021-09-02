@@ -4,10 +4,14 @@ type SectionProps = {
 };
 const Section = ({ name, children }: SectionProps) => {
   return (
-    <section className="py-6">
-      <h2 className="mb-6 text-4xl text-center uppercase">{name}</h2>
+    <section className="pb-6">
+      <h2 className="mb-6 px-6 pb-2 text-4xl text-center uppercase text-gray-400">
+        {name}
+      </h2>
 
-      <div className="flex justify-center flex-wrap">{children}</div>
+      <div className="flex justify-center flex-wrap">
+        {children}
+      </div>
     </section>
   );
 };

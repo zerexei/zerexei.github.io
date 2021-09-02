@@ -7,7 +7,7 @@ import Home from "./components/home/Home";
 const App = () => {
   return (
     <Router>
-      <div className="font-oswald bg-gray-900">
+      <div className="font-oswald bg-gray-900 text-gray-200">
         <Header />
         <main>
           <Switch>
