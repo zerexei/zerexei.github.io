@@ -1,4 +1,3 @@
-import { ChevronDoubleDownIcon } from "@heroicons/react/solid";
 import Avatar from "./Avatar";
 import Bio from "./Bio";
 import Connect from "./Connect";

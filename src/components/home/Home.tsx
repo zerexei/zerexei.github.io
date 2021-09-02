@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
+
 import Banner from "./Banner";
 
 const Home = () => {
