@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "PHP-core",
+    "description": "Simple laravel like php framework with routing and database support.",
+    "url": "/php-core",
+    "tags": [
+      { "id": 1, "name": "HTML" },
+      { "id": 2, "name": "Tailwindcss" },
+      { "id": 3, "name": "Alpinejs" },
+      { "id": 4, "name": "Laravel" },
+      { "id": 5, "name": "Livewire" }
+    ]
+  }
+]
