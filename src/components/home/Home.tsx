@@ -1,8 +1,9 @@
 import Banner from "./Banner";
 import Section from "../Section";
 import Card from "../Card";
-import TopProjects from "./top_project.json";
-import Articles from "./articles.json";
+import TopProjects from "../data/top_project.json";
+import Articles from "../data/articles.json";
+import Utilities from "../data/utilities.json";
 
 const Home = () => {
   return (
@@ -30,6 +31,19 @@ const Home = () => {
               description={article.description}
               url={article.url}
               tags={article.tags}
+            />
+          );
+        })}
+      </Section>
+
+      <Section name="Utilities">
+        {Utilities.map((utility) => {
+          return (
+            <Card
+              name={utility.name}
+              description={utility.description}
+              url={utility.url}
+              tags={utility.tags}
             />
           );
         })}
