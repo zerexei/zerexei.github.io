@@ -1,8 +1,5 @@
 import { ChevronDoubleDownIcon } from "@heroicons/react/solid";
-import DiscordIcon from "./icons/DiscordIcon";
-import GithubIcon from "./icons/GithubIcon";
-import MailIcon from "./icons/MailIcon";
-import SteamIcon from "./icons/SteamIcon";
+import Connect from "./Connect";
 
 const Banner = () => {
   return (
@@ -17,28 +14,7 @@ const Banner = () => {
         </div>
 
         <p className="mb-1">Web Developer</p>
-
-        <div className="flex justify-center gap-2 mb-4">
-          {/* GITHUB */}
-          <a href="#github">
-            <GithubIcon css="w-7 h-7" />
-          </a>
-
-          {/* Discord */}
-          <a href="#discord">
-            <DiscordIcon css="w-7 h-7 text-blue-800" />
-          </a>
-
-          {/* STEAM */}
-          <a href="#steam">
-            <SteamIcon css="w-7 h-7" />
-          </a>
-
-          {/* GMAIL */}
-          <a href="mailto:angeloarcillas64@gmail.com">
-            <MailIcon css="w-7 h-7 text-red-500" />
-          </a>
-        </div>
+        <Connect />
 
         <p className="p-2 py-4 bg-red-200">
           I am Angelo Arcillas, an aspiring web developer from the philippines.
