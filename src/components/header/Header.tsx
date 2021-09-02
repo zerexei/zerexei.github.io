@@ -11,10 +11,9 @@ const Header = () => {
   const toggleNavBar = () => (isVisibleNavBar ? hideNavBar() : showNavBar());
 
   return (
-    <header className="p-4 bg-gray-800 text-white">
+    <header className="p-4 bg-gray-800 text-gray-200">
       <div className="flex items-center justify-between">
         <Brand />
-        
         <Menu toggleNavBar={toggleNavBar} />
       </div>
 

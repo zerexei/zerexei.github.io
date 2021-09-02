@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./components/header/Header";
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 
 // TODO: separate to components
 const App = () => {
   return (
     <Router>
-      <div className="font-oswald">
+      <div className="font-oswald bg-gray-900">
         <Header />
         <main>
           <Switch>
