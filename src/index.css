@@ -9,11 +9,8 @@
   p {
     @apply tracking-wide;
   }
-}
 
-#banner {
-  background-image: url("./assets/img/undraw_hello.svg");
-  background-position: 50% 35%;
-  background-repeat: no-repeat;
-  background-size: contain;
+  .scroll-down {
+    @apply animate-bounce inline-block p-2 text-red-400 border-2 border-red-400 rounded-full cursor-pointer hover:bg-red-400 hover:text-white hover:border-white;
+  }
 }
