@@ -11,15 +11,22 @@ const App = () => {
         <Header />
         <main>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/profile">
-              <p>profile</p>
-            </Route>
-            <Route path="/utilities">
-              <p>utilities</p>
-            </Route>
+            <div className="md:w-3/4 mx-auto">
+              <Route exact path="/" component={Home} />
+              <Route path="/profile">
+                <p>profile</p>
+              </Route>
+              <Route path="/utilities">
+                <p>utilities</p>
+              </Route>
+            </div>
           </Switch>
         </main>
+        <footer className="flex justify-center items-center h-20 p-4 bg-gray-800">
+          <p className="text-xs">
+            Know thy code.
+          </p>
+        </footer>
       </div>
     </Router>
   );
