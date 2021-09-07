@@ -22,7 +22,7 @@ const App = () => {
             </div>
           </Switch>
         </main>
-        <footer className="flex justify-center items-center h-20 p-4 bg-gray-800">
+        <footer className="flex justify-center items-center h-20 p-4 -mt-6 bg-gray-800">
           <p className="text-xs">
             Know thy code.
           </p>
