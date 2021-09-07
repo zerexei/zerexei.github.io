@@ -24,7 +24,7 @@ const Card = ({ name, description, tags, url }: CardProps) => {
 
   return (
     <div className="p-6">
-      <h4 className="inline-block pr-4 mb-2 text-xl text-red-400 border-b border-red-400">
+      <h4 className="inline-block pr-4 mb-2 text-xl text-red-400 border-b-2 border-red-400">
         {name}
       </h4>
 
@@ -32,7 +32,7 @@ const Card = ({ name, description, tags, url }: CardProps) => {
       
       <div className="flex items-center justify-between">
         {tagsHTML}
-        <a href={url} className="btn text-sm tracking-widest">
+        <a href={url} className="btn text-sm tracking-widest select-none">
           Visit
           <ArrowRightIcon className="inline-block w-5 h-5 ml-2" />
         </a>
