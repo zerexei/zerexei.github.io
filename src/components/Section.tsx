@@ -10,7 +10,9 @@ const Section = ({ name, children, className = "" }: SectionProps) => {
         {name}
       </h2>
 
-      <div className="flex flex-col flex-wrap mb-4">{children}</div>
+      <div className="flex flex-col flex-wrap items-center lg:flex-row lg:justify-center lg:items-stretch lg:gap-5 mb-6">
+        {children}
+      </div>
 
       <div className="text-center">
         <a href="#a" className="btn">

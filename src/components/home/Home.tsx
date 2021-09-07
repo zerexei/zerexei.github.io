@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <span id="main-content" className="w-0"></span>
       <Section name="Top Projects">
-        <span id="TopProjects"></span>
         {TopProjects.map((project) => {
           return (
             <Card

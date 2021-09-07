@@ -23,14 +23,14 @@ const Card = ({ name, description, tags, url }: CardProps) => {
   );
 
   return (
-    <div className="p-6">
-      <h4 className="inline-block pr-4 mb-2 text-xl text-red-400 border-b-2 border-red-400">
+    <div className="p-6 lg:w-1/5 lg:bg-gray-800 lg:rounded">
+      <h4 className="inline-block pr-4 mb-2 text-xl text-red-400 lg:text-2xl border-b-2 border-red-400 lg:border-0">
         {name}
       </h4>
 
       <p className="mb-6 text-sm">{description}</p>
-      
-      <div className="flex items-center justify-between">
+
+      <div className="flex items-center justify-between lg:flex-col lg:items-start lg:gap-5">
         {tagsHTML}
         <a href={url} className="btn text-sm tracking-widest select-none">
           Visit

@@ -23,7 +23,7 @@ const App = () => {
           </Switch>
         </main>
         <footer className="flex justify-center items-center h-20 p-4 -mt-6 bg-gray-800">
-          <p className="text-xs">
+          <p className="text-xs lg:text-base">
             Know thy code.
           </p>
         </footer>
