@@ -1,8 +1,8 @@
 import NavLink from "./NavLink";
 
-const NavBar = () => {
+const MobileNavBar = () => {
   return (
-    <nav className="flex flex-col mt-4">
+    <nav className="flex flex-col mt-4 lg:flex-row">
       <NavLink url="/" label="Home" />
       <NavLink url="/profile" label="Profile" />
       <NavLink url="/article" label="Articles" />
@@ -11,4 +11,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default MobileNavBar;

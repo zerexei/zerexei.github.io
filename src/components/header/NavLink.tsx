@@ -11,7 +11,7 @@ const NavLink = ({ url, label }: NavLinkProps) => {
       to={url}
       exact
       activeClassName="text-red-400"
-      className="p-1 hover:text-red-400"
+      className="p-1 px-2 hover:text-red-400"
     >
       {label}
     </NavBarLink>

@@ -1,23 +1,30 @@
 import { useState } from "react";
-import Brand from "./Brand";
+
 import Menu from "./Menu";
-import NavBar from "./NavBar";
+import Brand from "./Brand";
+import MobileNavBar from "./MobileNavBar";
+import DesktopNavBar from "./DesktopNavBar";
 
 const Header = () => {
-  const [isVisibleNavBar, setIsVisibleNavBar] = useState<boolean>(false);
+  const [isVisibleMobileNavBar, setIsVisibleMobileNavBar] =
+    useState<boolean>(false);
 
-  const showNavBar = () => setIsVisibleNavBar(true);
-  const hideNavBar = () => setIsVisibleNavBar(false);
-  const toggleNavBar = () => (isVisibleNavBar ? hideNavBar() : showNavBar());
+  const showMobileNavBar = () => setIsVisibleMobileNavBar(true);
+  const hideMobileNavBar = () => setIsVisibleMobileNavBar(false);
+  const toggleMobileNavBar = () =>
+    isVisibleMobileNavBar ? hideMobileNavBar() : showMobileNavBar();
 
   return (
     <header className="p-4 bg-gray-800 text-gray-200">
-      <div className="flex items-center justify-between">
-        <Brand />
-        <Menu toggleNavBar={toggleNavBar} />
-      </div>
+      <div className="lg:w-3/4 lg:flex lg:justify-between lg:mx-auto">
+        <div className="flex items-center justify-between">
+          <Brand />
+          <Menu toggleMobileNavBar={toggleMobileNavBar} />
+        </div>
 
-      {isVisibleNavBar && <NavBar />}
+        {isVisibleMobileNavBar && <MobileNavBar />}
+        <DesktopNavBar />
+      </div>
     </header>
   );
 };
