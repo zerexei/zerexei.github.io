@@ -1,58 +1,40 @@
 [
   {
     "id": 1,
-    "name": "Lorem Ipsum",
-    "description": "Vivamus maximus at tellus quis lobortis. Nulla maximus lorem eget dictum fermentum. Maecenas at nibh gravida, aliquam sapien sit amet, aliquam odio. Quisque sit amet nulla sapien. Nam in consectetur ligula.",
-    "url": "/lorem-ipsum",
+    "name": "PHP-Core",
+    "description": "Simple MVC Laravel like framework with router and database support.",
+    "url": "https://github.com/zerexei/php-core",
     "tags": [
-      { "id": 1, "name": "HTML" },
-      { "id": 2, "name": "CSS" },
-      { "id": 3, "name": "Javascript" },
-      { "id": 4, "name": "Expressjs" },
-      { "id": 5, "name": "Nodejs" },
-      { "id": 5, "name": "SQL" }
+      { "id": 1, "name": "PHP" },
+      { "id": 2, "name": "SQL" },
+      { "id": 3, "name": "framework" },
+      { "id": 4, "name": "request-router" },
+      { "id": 5, "name": "database" }
     ]
   },
   {
-    "id": 1,
-    "name": "Lorem Ipsum",
-    "description": "Vivamus maximus at tellus quis lobortis. Nulla maximus lorem eget dictum fermentum. Maecenas at nibh gravida, aliquam sapien sit amet, aliquam odio. Quisque sit amet nulla sapien. Nam in consectetur ligula.",
-    "url": "/lorem-ipsum",
+    "id": 2,
+    "name": "Larga",
+    "description": "Blog cms using laravel, livewire and graphql. Integrated authorization and testing",
+    "url": "https://github.com/zerexei/Larga",
     "tags": [
-      { "id": 1, "name": "HTML" },
-      { "id": 2, "name": "CSS" },
-      { "id": 3, "name": "Javascript" },
-      { "id": 4, "name": "Expressjs" },
-      { "id": 5, "name": "Nodejs" },
-      { "id": 5, "name": "SQL" }
+      { "id": 1, "name": "laravel" },
+      { "id": 2, "name": "livewire" },
+      { "id": 3, "name": "graphql" },
+      { "id": 4, "name": "cms" },
+      { "id": 5, "name": "testing" }
     ]
   },
   {
-    "id": 1,
-    "name": "Lorem Ipsum",
-    "description": "Vivamus maximus at tellus quis lobortis. Nulla maximus lorem eget dictum fermentum. Maecenas at nibh gravida, aliquam sapien sit amet, aliquam odio. Quisque sit amet nulla sapien. Nam in consectetur ligula.",
-    "url": "/lorem-ipsum",
+    "id": 3,
+    "name": "zoop-word",
+    "description": "randomized word with description using the Merriam-Webster Dictionary API",
+    "url": "https://github.com/zerexei/zoop-word",
     "tags": [
-      { "id": 1, "name": "HTML" },
-      { "id": 2, "name": "CSS" },
-      { "id": 3, "name": "Javascript" },
-      { "id": 4, "name": "Expressjs" },
-      { "id": 5, "name": "Nodejs" },
-      { "id": 5, "name": "SQL" }
-    ]
-  },
-  {
-    "id": 1,
-    "name": "Lorem Ipsum",
-    "description": "Vivamus maximus at tellus quis lobortis. Nulla maximus lorem eget dictum fermentum. Maecenas at nibh gravida, aliquam sapien sit amet, aliquam odio. Quisque sit amet nulla sapien. Nam in consectetur ligula.",
-    "url": "/lorem-ipsum",
-    "tags": [
-      { "id": 1, "name": "HTML" },
-      { "id": 2, "name": "CSS" },
-      { "id": 3, "name": "Javascript" },
-      { "id": 4, "name": "Expressjs" },
-      { "id": 5, "name": "Nodejs" },
-      { "id": 5, "name": "SQL" }
+      { "id": 1, "name": "html" },
+      { "id": 2, "name": "tailwindcss" },
+      { "id": 3, "name": "javscript" },
+      { "id": 4, "name": "api" }
     ]
   }
 ]
