@@ -1,36 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Introduction to programming",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!",
-    "url": "/php-core",
+    "name": "Integrating git bash to visual studio code in 2021",
+    "description": "Are you shocked that your default terminal is missing? Having a difficult time searching how to setup git bash in vscode? ...",
+    "url": "https://medium.com/@angeloarcillas64/integrating-git-bash-to-visual-studio-code-in-2021-c290aaec99b4",
     "tags": [
-      { "id": 1, "name": "Programming" },
-      { "id": 2, "name": "Code" },
-      { "id": 3, "name": "Beginner" },
-      { "id": 4, "name": "Fundamentals" }
-    ]
-  },
-  {
-    "id": 1,
-    "name": "Clean code",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!Simple laravel like php framework with routing and database support.",
-    "url": "/php-core",
-    "tags": [
-      { "id": 1, "name": "Programming" },
-      { "id": 2, "name": "Computer Architecture" },
-      { "id": 3, "name": "Programming Design" }
-    ]
-  },
-  {
-    "id": 1,
-    "name": "Simplicity",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!",
-    "url": "/php-core",
-    "tags": [
-      { "id": 1, "name": "Best practices" },
-      { "id": 2, "name": "Programming" },
-      { "id": 3, "name": "Datastructure" }
+      { "id": 1, "name": "vscode" },
+      { "id": 2, "name": "git-bash" },
+      { "id": 3, "name": "text edittor" }
     ]
   }
 ]
