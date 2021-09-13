@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Banner />
       <span id="main-content" className="w-0"></span>
-      <Section name="Top Projects">
+      <Section name="Top Projects" moreItemsUrl="https://github.com/zerexei/">
         {TopProjects.map((project) => {
           return (
             <Card
@@ -23,7 +23,10 @@ const Home = () => {
         })}
       </Section>
 
-      <Section name="Articles">
+      <Section
+        name="Articles"
+        moreItemsUrl="https://medium.com/@angeloarcillas64"
+      >
         {Articles.map((article) => {
           return (
             <Card
@@ -36,7 +39,7 @@ const Home = () => {
         })}
       </Section>
 
-      <Section name="tools">
+      <Section name="tools" moreItemsUrl="/tools">
         {Tools.map((tool) => {
           return (
             <Card

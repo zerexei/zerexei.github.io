@@ -1,9 +1,16 @@
 type SectionProps = {
   name: string;
+  moreItemsUrl: string;
   children: any;
   className?: string;
 };
-const Section = ({ name, children, className = "" }: SectionProps) => {
+
+const Section = ({
+  name,
+  moreItemsUrl,
+  children,
+  className = "",
+}: SectionProps) => {
   return (
     <section className={`mb-12 py-6 ${className}`}>
       <h2 className="mb-6 px-6 pb-2 text-4xl text-center uppercase text-gray-500">
@@ -15,8 +22,8 @@ const Section = ({ name, children, className = "" }: SectionProps) => {
       </div>
 
       <div className="text-center">
-        <a href="#a" className="btn">
-          View more...
+        <a href={moreItemsUrl} className="underline hover:text-red-400">
+          View more ...
         </a>
       </div>
     </section>
