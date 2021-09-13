@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Tag from "./Tag";
+import VisitTag from "./VisitTag";
 
 type TagProps = {
   id: number;
@@ -32,10 +33,8 @@ const Card = ({ name, description, tags, url }: CardProps) => {
 
       <div className="flex items-center justify-between lg:flex-col lg:items-start lg:gap-5">
         {tagsHTML}
-        <a href={url} className="btn text-sm tracking-widest select-none">
-          Visit
-          <ArrowRightIcon className="inline-block w-5 h-5 ml-2" />
-        </a>
+
+        <VisitTag url={url} />
       </div>
     </div>
   );

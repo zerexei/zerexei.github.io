@@ -1,3 +1,5 @@
+import ViewMoreTag from "./ViewMoreTag";
+
 type SectionProps = {
   name: string;
   moreItemsUrl: string;
@@ -5,6 +7,7 @@ type SectionProps = {
   className?: string;
 };
 
+//TODO: create a reusable button if possible
 const Section = ({
   name,
   moreItemsUrl,
@@ -22,10 +25,10 @@ const Section = ({
       </div>
 
       <div className="text-center">
-        <a href={moreItemsUrl} className="underline hover:text-red-400">
-          View more ...
-        </a>
+        <ViewMoreTag url={moreItemsUrl} />
       </div>
+
+      <div className="text-center"></div>
     </section>
   );
 };
