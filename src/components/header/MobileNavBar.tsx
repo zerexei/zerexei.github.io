@@ -1,12 +1,21 @@
 import NavLink from "./NavLink";
 
-const MobileNavBar = () => {
+type LinksProps = {
+  id: number;
+  url: string;
+  label: string;
+};
+
+type MobileNavBarProps = {
+  links: LinksProps[];
+};
+
+const MobileNavBar = ({ links }: MobileNavBarProps) => {
   return (
     <nav className="flex flex-col mt-4 lg:flex-row">
-      <NavLink url="/" label="Home" />
-      <NavLink url="/profile" label="Profile" />
-      <NavLink url="/article" label="Articles" />
-      <NavLink url="/utilities" label="Utilities" />
+      {links.map((link) => {
+        return <NavLink key={link.id} url={link.url} label={link.label} />;
+      })}
     </nav>
   );
 };

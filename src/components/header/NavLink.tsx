@@ -6,6 +6,14 @@ type NavLinkProps = {
 };
 
 const NavLink = ({ url, label }: NavLinkProps) => {
+  if (url.match(/^https?:\/\//)) {
+    return (
+      <a href={url} className="p-1 px-2 hover:text-red-400">
+        {label}
+      </a>
+    );
+  }
+
   return (
     <NavBarLink
       to={url}

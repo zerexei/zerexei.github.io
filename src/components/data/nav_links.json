@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "label": "Home",
+    "url": "/"
+  },
+  {
+    "id": 2,
+    "label": "About Me",
+    "url": "/about-me"
+  },
+  {
+    "id": 3,
+    "label": "Projects",
+    "url": "https://github.com/zerexei"
+  },
+  {
+    "id": 4,
+    "label": "Articles",
+    "url": "https://medium.com/@angeloarcillas64"
+  },
+  {
+    "id": 5,
+    "label": "Tools",
+    "url": "/tools"
+  },
+  {
+    "id": 6,
+    "label": "Resume",
+    "url": "https://zerexei.notion.site/Resume-c4a2138c738e451aa064509f37620b8d"
+  }
+]

@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import Links from "../data/nav_links.json";
+
 import Menu from "./Menu";
 import Brand from "./Brand";
 import MobileNavBar from "./MobileNavBar";
@@ -22,8 +24,8 @@ const Header = () => {
           <Menu toggleMobileNavBar={toggleMobileNavBar} />
         </div>
 
-        {isVisibleMobileNavBar && <MobileNavBar />}
-        <DesktopNavBar />
+        {isVisibleMobileNavBar && <MobileNavBar links={Links} />}
+        <DesktopNavBar links={Links} />
       </div>
     </header>
   );
