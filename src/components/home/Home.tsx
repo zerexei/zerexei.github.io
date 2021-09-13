@@ -3,7 +3,7 @@ import Section from "../Section";
 import Card from "../Card";
 import TopProjects from "../data/top_project.json";
 import Articles from "../data/articles.json";
-import Utilities from "../data/utilities.json";
+import Tools from "../data/tools.json";
 
 const Home = () => {
   return (
@@ -36,14 +36,14 @@ const Home = () => {
         })}
       </Section>
 
-      <Section name="Utilities">
-        {Utilities.map((utility) => {
+      <Section name="tools">
+        {Tools.map((tool) => {
           return (
             <Card
-              name={utility.name}
-              description={utility.description}
-              url={utility.url}
-              tags={utility.tags}
+              name={tool.name}
+              description={tool.description}
+              url={tool.url}
+              tags={tool.tags}
             />
           );
         })}

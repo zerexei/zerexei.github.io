@@ -16,8 +16,8 @@ const App = () => {
               <Route path="/profile">
                 <p>profile</p>
               </Route>
-              <Route path="/utilities">
-                <p>utilities</p>
+              <Route path="/tools">
+                <p>Tools</p>
               </Route>
             </div>
           </Switch>
