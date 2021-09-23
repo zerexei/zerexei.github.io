@@ -1,15 +1,15 @@
 import Tag from "./Tag";
 import VisitTag from "./VisitTag";
 
-type TagProps = {
+export interface TagType {
   id: number;
   name: string;
-};
+}
 
 type CardProps = {
   name: string;
   description: string;
-  tags?: TagProps[];
+  tags?: TagType[];
   url: string;
 };
 

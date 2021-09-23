@@ -2,30 +2,18 @@
 import Banner from "./Banner";
 import Card from "../Card";
 import Section from "../Section";
+import TopProjects from "./section/TopProjects";
 
 // datas
 import Articles from "../data/articles.json";
 import Tools from "../data/tools.json";
-import TopProjects from "../data/top_project.json";
 
 const Home = () => {
   return (
     <div>
       <Banner />
       <span id="main-content" className="invinsible"></span>
-      <Section title="Top Projects" moreItemsUrl="https://github.com/zerexei/">
-        {TopProjects.map((project) => {
-          return (
-            <Card
-              key={project.id}
-              name={project.name}
-              description={project.description}
-              url={project.url}
-              tags={project.tags}
-            />
-          );
-        })}
-      </Section>
+      <TopProjects />
 
       <Section
         title="Articles"
