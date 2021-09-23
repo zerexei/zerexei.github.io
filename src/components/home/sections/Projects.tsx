@@ -1,20 +1,12 @@
-import Card, { TagType } from "../../Card";
+import Card, { CardType } from "../../Card";
 import Section from "../../Section";
 
 import projects from "../../data/projects.json";
 
-interface ProjectType {
-  id: number;
-  name: string;
-  description: string;
-  url: string;
-  tags: TagType[];
-}
-
 const Projects = () => {
   return (
     <Section title="Projects" moreItemsUrl="https://github.com/zerexei/">
-      {projects.map((project: ProjectType) => {
+      {projects.map((project: CardType) => {
         return (
           <Card
             key={project.id}

@@ -1,15 +1,7 @@
-import Card, { TagType } from "../../Card";
+import Card, { CardType } from "../../Card";
 import Section from "../../Section";
 
 import articles from "../../data/articles.json";
-
-interface ArticleType {
-  id: number;
-  name: string;
-  description: string;
-  url: string;
-  tags: TagType[];
-}
 
 const Articles = () => {
   return (
@@ -17,7 +9,7 @@ const Articles = () => {
       title="Articles"
       moreItemsUrl="https://medium.com/@angeloarcillas64"
     >
-      {articles.map((article: ArticleType) => {
+      {articles.map((article: CardType) => {
         return (
           <Card
             key={article.id}

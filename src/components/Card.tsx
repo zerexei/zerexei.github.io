@@ -1,17 +1,20 @@
 import Tag from "./Tag";
 import VisitTag from "./VisitTag";
 
-export interface TagType {
+interface TagType {
   id: number;
   name: string;
 }
 
-type CardProps = {
+export interface CardType {
+  id: number;
   name: string;
   description: string;
-  tags?: TagType[];
   url: string;
-};
+  tags?: TagType[];
+}
+
+type CardProps = Omit<CardType, "id">;
 
 /**
  * Container for contents
