@@ -1,15 +1,10 @@
-import NavLink from "./NavLink";
+import NavLink, { LinkType } from "./NavLink";
 
-type LinksProps = {
-  id: number;
-  url: string;
-  label: string;
+type DesktopNavBarProps = {
+  links: LinkType[];
 };
 
-type MobileNavBarProps = {
-  links: LinksProps[];
-};
-const DesktopNavBar = ({ links }: MobileNavBarProps) => {
+const DesktopNavBar = ({ links }: DesktopNavBarProps) => {
   return (
     <nav className="hidden lg:flex mt-4">
       {links.map((link) => {

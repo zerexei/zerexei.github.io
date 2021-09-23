@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-import Links from "../../data/nav_links.json";
-
-import Menu from "./Menu";
+// components
 import Brand from "./Brand";
-import MobileNavBar from "./MobileNavBar";
+import Menu from "./Menu";
 import DesktopNavBar from "./DesktopNavBar";
+import MobileNavBar from "./MobileNavBar";
+
+// datas
+import Links from "../../data/nav_links.json";
 
 const Header = () => {
   const [isVisibleMobileNavBar, setIsVisibleMobileNavBar] =
     useState<boolean>(false);
 
-  const showMobileNavBar = () => setIsVisibleMobileNavBar(true);
-  const hideMobileNavBar = () => setIsVisibleMobileNavBar(false);
   const toggleMobileNavBar = () =>
-    isVisibleMobileNavBar ? hideMobileNavBar() : showMobileNavBar();
+    setIsVisibleMobileNavBar(!isVisibleMobileNavBar);
 
   return (
     <header className="p-4 bg-gray-800 text-gray-200">

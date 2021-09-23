@@ -1,13 +1,8 @@
-import NavLink from "./NavLink";
+import NavLink, { LinkType } from "./NavLink";
 
-type LinksProps = {
-  id: number;
-  url: string;
-  label: string;
-};
 
 type MobileNavBarProps = {
-  links: LinksProps[];
+  links: LinkType[];
 };
 
 const MobileNavBar = ({ links }: MobileNavBarProps) => {

@@ -1,9 +1,12 @@
 import { NavLink as NavBarLink } from "react-router-dom";
 
-type NavLinkProps = {
+export interface LinkType {
+  id: number;
   url: string;
   label: string;
-};
+}
+
+type NavLinkProps = Omit<LinkType, "id">;
 
 const NavLink = ({ url, label }: NavLinkProps) => {
   if (url.match(/^https?:\/\//)) {
