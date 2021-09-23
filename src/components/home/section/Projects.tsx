@@ -1,7 +1,7 @@
 import Card, { TagType } from "../../Card";
 import Section from "../../Section";
 
-import projects from "../../data/top_project.json";
+import projects from "../../data/projects.json";
 
 interface ProjectType {
   id: number;
@@ -11,9 +11,9 @@ interface ProjectType {
   tags: TagType[];
 }
 
-const TopProjects = () => {
+const Projects = () => {
   return (
-    <Section title="Top Projects" moreItemsUrl="https://github.com/zerexei/">
+    <Section title="Projects" moreItemsUrl="https://github.com/zerexei/">
       {projects.map((project: ProjectType) => {
         return (
           <Card
@@ -29,4 +29,4 @@ const TopProjects = () => {
   );
 };
 
-export default TopProjects;
+export default Projects;

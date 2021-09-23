@@ -2,7 +2,7 @@
 import Banner from "./Banner";
 import Card from "../Card";
 import Section from "../Section";
-import TopProjects from "./section/TopProjects";
+import Projects from "./section/Projects";
 
 // datas
 import Articles from "../data/articles.json";
@@ -13,8 +13,7 @@ const Home = () => {
     <div>
       <Banner />
       <span id="main-content" className="invinsible"></span>
-      <TopProjects />
-
+      <Projects />
       <Section
         title="Articles"
         moreItemsUrl="https://medium.com/@angeloarcillas64"
