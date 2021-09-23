@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "name": "password generator",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!",
+    "url": "/php-core",
+    "tags": [
+      { "id": 1, "name": "Programming" },
+      { "id": 2, "name": "Code" },
+      { "id": 3, "name": "Beginner" },
+      { "id": 4, "name": "Fundamentals" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "hex to rgb",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!Simple laravel like php framework with routing and database support.",
+    "url": "/php-core",
+    "tags": [
+      { "id": 1, "name": "Programming" },
+      { "id": 2, "name": "Computer Architecture" },
+      { "id": 3, "name": "Programming Design" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "is prime?",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!",
+    "url": "/php-core"
+  }
+]

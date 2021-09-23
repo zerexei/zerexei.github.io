@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "name": "Integrating git bash to visual studio code in 2021",
+    "description": "Are you shocked that your default terminal is missing? Having a difficult time searching how to setup git bash in vscode? ...",
+    "url": "https://medium.com/@angeloarcillas64/integrating-git-bash-to-visual-studio-code-in-2021-c290aaec99b4",
+    "tags": [
+      { "id": 1, "name": "vscode" },
+      { "id": 2, "name": "git-bash" },
+      { "id": 3, "name": "text edittor" }
+    ]
+  }
+]

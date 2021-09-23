@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Links from "../data/nav_links.json";
+import Links from "../../data/nav_links.json";
 
 import Menu from "./Menu";
 import Brand from "./Brand";
