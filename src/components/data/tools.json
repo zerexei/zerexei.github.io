@@ -26,11 +26,6 @@
     "id": 3,
     "name": "is prime?",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, asperiores animi. Dolore ex ea dignissimos ducimus nulla a sed magni voluptas consequatur, sapiente quis libero debitis omnis temporibus aut magnam!",
-    "url": "/php-core",
-    "tags": [
-      { "id": 1, "name": "Best practices" },
-      { "id": 2, "name": "Programming" },
-      { "id": 3, "name": "Datastructure" }
-    ]
+    "url": "/php-core"
   }
 ]

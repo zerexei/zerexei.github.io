@@ -1,34 +1,36 @@
 import ViewMoreTag from "./ViewMoreTag";
 
 type SectionProps = {
-  name: string;
+  title: string;
   moreItemsUrl: string;
-  children: any;
   className?: string;
+  children: JSX.Element[];
 };
 
-//TODO: create a reusable button if possible
+/**
+ * Container for a self-contained content
+ */
 const Section = ({
-  name,
+  title,
   moreItemsUrl,
-  children,
   className = "",
+  children,
 }: SectionProps) => {
   return (
     <section className={`mb-12 py-6 ${className}`}>
-      <h2 className="mb-6 px-6 pb-2 text-4xl text-center uppercase text-gray-500">
-        {name}
-      </h2>
+      <div className="section-header">
+        <h2 className="section-title">{title}</h2>
+      </div>
 
-      <div className="flex flex-col flex-wrap items-center lg:flex-row lg:justify-center lg:items-stretch lg:gap-5 mb-6">
+      <div className="section-body">
         {children}
       </div>
 
-      <div className="text-center">
-        <ViewMoreTag url={moreItemsUrl} />
+      <div className="section-footer">
+        <div className="text-center">
+          <ViewMoreTag url={moreItemsUrl} />
+        </div>
       </div>
-
-      <div className="text-center"></div>
     </section>
   );
 };

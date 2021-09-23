@@ -17,6 +17,22 @@
   .btn {
     @apply py-1 px-3 text-red-400 border border-red-400 rounded-md hover:bg-red-400 hover:border-transparent hover:text-gray-200;
   }
+
+  .section-title {
+    @apply mb-6 px-6 pb-2 text-4xl text-center uppercase text-gray-500;
+  }
+
+  .section-body {
+    @apply flex flex-col flex-wrap items-center lg:flex-row lg:justify-center lg:items-stretch lg:gap-5 mb-6;
+  }
+
+  .card-title {
+    @apply inline-block pr-4 mb-2 text-xl text-red-400 lg:text-2xl border-b-2 border-red-400 lg:border-0;
+  }
+
+  .card-footer {
+    @apply flex items-center justify-between lg:flex-col lg:items-start lg:gap-5;
+  }
 }
 
 * {
