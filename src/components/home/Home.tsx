@@ -2,10 +2,10 @@
 import Banner from "./Banner";
 import Card from "../Card";
 import Section from "../Section";
-import Projects from "./section/Projects";
+import Projects from "./sections/Projects";
+import Articles from "./sections/Articles";
 
 // datas
-import Articles from "../data/articles.json";
 import Tools from "../data/tools.json";
 
 const Home = () => {
@@ -14,23 +14,7 @@ const Home = () => {
       <Banner />
       <span id="main-content" className="invinsible"></span>
       <Projects />
-      <Section
-        title="Articles"
-        moreItemsUrl="https://medium.com/@angeloarcillas64"
-      >
-        {Articles.map((article) => {
-          return (
-            <Card
-              key={article.id}
-              name={article.name}
-              description={article.description}
-              url={article.url}
-              tags={article.tags}
-            />
-          );
-        })}
-      </Section>
-
+      <Articles />
       <Section title="tools" moreItemsUrl="/tools">
         {Tools.map((tool) => {
           return (
