@@ -26,8 +26,10 @@ function App() {
           {/* ---------------*/}
           <div className="flex items-center mb-12">
             <p className="flex-1">
-              <h1 className="text-4xl font-bolder">John Doe</h1>
-              <h2 className="text-sm text-gray-500">johndoe@mail.com</h2>
+              <h1 className="text-4xl font-bolder">Angelo Arcillas</h1>
+              <h2 className="text-sm text-gray-500">
+                angeloarcillas64@gmail.com
+              </h2>
               <h3 className="text-xl font-bold text-gray-500">Web Developer</h3>
             </p>
             <div className="w-28">
@@ -42,42 +44,49 @@ function App() {
           {/* --------------- */}
           <div className="mb-12">
             <p className="mb-6">
-              Aliquam a feugiat est. Donec est diam, consequat non feugiat a,
-              tincidunt non sapien. Nunc a enim porttitor, vestibulum leo vitae,
-              auctor mi. Pellentesque fringilla mi ut dictum finibus. Cras non
-              accumsan ex, nec vehicula purus. Sed maximus molestie consequat.
-              Proin.
+              Heya I'm Daaave,{" "}
+              <span className="font-bold text-black">
+                a web developer with 6+ years experience writting javascript,
+                PHP & SQL
+              </span>
+              . I specialize in building web apps using frameworks like
+              <span className="font-bold text-black">
+                {" "}
+                Tailwindcss, React.js and laravel
+              </span>
+              . I am an aspiring web developer from philippines who loves
+              back-end web development, I always prioritize in best practices
+              and security to ensure that I can produce a high quality and
+              secure codebase for problem solutions. I enjoy watching anime,
+              playing pc games and PROGRAMMING.
             </p>
             <p className="mb-6">
-              Etiam at congue urna, non convallis turpis. Nunc quis turpis
-              rhoncus tortor porta posuere ac a odio. Donec sit amet ante nunc.
-              Nullam rhoncus eu elit in tincidunt. Etiam convallis, mauris in
-              volutpat imperdiet, sem tellus commodo purus, quis facilisis nulla
-              nunc ut egestas.
-            </p>
-            <p className="mb-6">
-              Nullam porta felis ac est aliquet, vel gravida metus accumsan.
-              Duis quis metus a tellus eleifend scelerisque. Morbi id odio nunc.
-              Maecenas varius leo nisl, ut sagittis nunc commodo eu. Phasellus
-              mauris odio, fringilla vitae libero non, viverra gravida ante.
-              Praesent dignissim
+              If you're interested in hiring me{" "}
+              <a href="#" className="text-blue-500 hover:text-blue-700">
+                check out my resume
+              </a>{" "}
+              and you can contact me through my{" "}
+              <a href="#" className="text-blue-500 hover:text-blue-700">
+                email
+              </a>
+              . I am currently looking for web dev contracts/roles.
             </p>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 text-blue-500">
               <a href="#" alt="github link">
-                <FaGithub className="w-8 h-8" />
+                <FaGithub className="w-8 h-8 hover:text-blue-700" />
               </a>
 
               <a href="#" alt="stack overflow link">
-                <FaStackOverflow className="w-8 h-8" />
+                <FaStackOverflow className="w-8 h-8 hover:text-blue-700" />
               </a>
 
               <a href="#" alt="twitter link">
-                <FaTwitter className="w-8 h-8" />
+                <FaTwitter className="w-8 h-8 hover:text-blue-700" />
               </a>
 
               <a href="#" alt="discord link">
-                <FaDiscord className="w-8 h-8" />
+                <FaDiscord className="w-8 h-8 hover:text-blue-700" />
               </a>
             </div>
           </div>
@@ -97,7 +106,7 @@ function App() {
                     <a
                       href="#"
                       alt="project link"
-                      className="mr-2 font-bold text-blue-500"
+                      className="mr-2 font-bold text-blue-500 hover:text-blue-700"
                     >
                       Project Tile
                     </a>
@@ -126,7 +135,7 @@ function App() {
                     <a
                       href="#"
                       alt="project link"
-                      className="mr-2 font-bold text-blue-500"
+                      className="mr-2 font-bold text-blue-500 hover:text-blue-700"
                     >
                       Project Tile
                     </a>
