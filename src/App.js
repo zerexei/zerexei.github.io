@@ -75,7 +75,35 @@ function App() {
       <div className="mb-12">
         <h2 className="mb-6 text-2xl font-bold">Projects</h2>
         <div>
-          <div>
+          <div className="mb-4">
+            <div className="flex items-center mb-2">
+              <h3 className="flex-1">
+                <a
+                  href="#"
+                  alt="project link"
+                  className="mr-2 font-bold text-blue-500"
+                >
+                  Project Tile
+                </a>
+                <span className="text-gray-500">Role - Year</span>
+              </h3>
+              <div className="w-12 h-12">
+                <img
+                  src="https://picsum.photos/200"
+                  alt="project logo"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <p className="text-sm">
+              Cras lacinia, velit et varius efficitur, nisl lorem ullamcorper
+              libero, ac vehicula est felis vel magna. Curabitur interdum
+              euismod risus quis rutrum. Suspendisse consectetur, enim eu
+              aliquet accumsan, nulla dolor egestas neque, at euismod justo.
+            </p>
+          </div>
+
+          <div className="mb-4">
             <div className="flex items-center mb-2">
               <h3 className="flex-1">
                 <a
