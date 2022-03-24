@@ -75,6 +75,11 @@ function App() {
           </a>
         </div>
       </div>
+
+      {/* ------------ */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold">Skills</h2>
+      </div>
     </div>
   );
 }
