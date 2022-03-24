@@ -17,7 +17,7 @@ function App() {
         </p>
         <div className="w-28">
           <img
-            className="relative object-cover rounded-full"
+            className="object-cover rounded-full"
             src="https://picsum.photos/500"
             alt="avatar"
           />
@@ -30,20 +30,14 @@ function App() {
           Aliquam a feugiat est. Donec est diam, consequat non feugiat a,
           tincidunt non sapien. Nunc a enim porttitor, vestibulum leo vitae,
           auctor mi. Pellentesque fringilla mi ut dictum finibus. Cras non
-          accumsan ex, nec vehicula purus. Sed maximus molestie consequat. Proin
-          vestibulum metus ac quam porttitor, ac laoreet ex eleifend. Integer
-          tempor ac nunc nec accumsan.
+          accumsan ex, nec vehicula purus. Sed maximus molestie consequat.
+          Proin.
         </p>
         <p className="mb-6">
           Etiam at congue urna, non convallis turpis. Nunc quis turpis rhoncus
           tortor porta posuere ac a odio. Donec sit amet ante nunc. Nullam
           rhoncus eu elit in tincidunt. Etiam convallis, mauris in volutpat
           imperdiet, sem tellus commodo purus, quis facilisis nulla nunc ut
-          justo. Cras dapibus lectus eros, id dignissim velit pulvinar molestie.
-          Morbi scelerisque eros ut arcu placerat fermentum. Nam ut elit non
-          diam fermentum lacinia. Morbi nibh dolor, ultricies quis nibh in,
-          eleifend semper urna. Aliquam eget est eu eros rutrum scelerisque sit
-          amet nec neque. Maecenas ornare massa sit amet lorem ultricies
           egestas.
         </p>
         <p className="mb-6">
@@ -51,10 +45,6 @@ function App() {
           quis metus a tellus eleifend scelerisque. Morbi id odio nunc. Maecenas
           varius leo nisl, ut sagittis nunc commodo eu. Phasellus mauris odio,
           fringilla vitae libero non, viverra gravida ante. Praesent dignissim
-          dui in sem dignissim viverra. Vivamus eros ante, pellentesque ac orci
-          et, lacinia ultrices massa. Nunc consectetur maximus viverra. Quisque
-          varius tincidunt tristique. Vestibulum velit nibh, elementum quis est
-          in, ornare efficitur eros. Praesent eu urna ac justo aliquam semper.
         </p>
 
         <div className="flex items-center space-x-2">
@@ -79,6 +69,40 @@ function App() {
       {/* ------------ */}
       <div className="mb-12">
         <h2 className="text-2xl font-bold">Skills</h2>
+      </div>
+
+      {/* ------------ */}
+      <div className="mb-12">
+        <h2 className="mb-6 text-2xl font-bold">Projects</h2>
+        <div>
+          <div>
+            <div className="flex items-center mb-2">
+              <h3 className="flex-1">
+                <a
+                  href="#"
+                  alt="project link"
+                  className="mr-2 font-bold text-blue-500"
+                >
+                  Project Tile
+                </a>
+                <span className="text-gray-500">Role - Year</span>
+              </h3>
+              <div className="w-12 h-12">
+                <img
+                  src="https://picsum.photos/200"
+                  alt="project logo"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            <p className="text-sm">
+              Cras lacinia, velit et varius efficitur, nisl lorem ullamcorper
+              libero, ac vehicula est felis vel magna. Curabitur interdum
+              euismod risus quis rutrum. Suspendisse consectetur, enim eu
+              aliquet accumsan, nulla dolor egestas neque, at euismod justo.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
