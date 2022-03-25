@@ -5,33 +5,14 @@ import {
   FaStackOverflow,
   FaTwitter,
 } from "react-icons/fa";
+import Header from "./components/Header";
 
 import Skills from "./components/Skills";
 
 function App() {
   return (
     <div className="font-mono  mx-auto">
-      <header className="bg-red-200 pt-6 pb-2 h-12 flex justify-center items-center space-x-4 uppercase font-bold text-red-500">
-        <a
-          href="#"
-          className="tracking-wide hover:text-red-600 hover:underline"
-        >
-          Home
-        </a>
-        <a
-          href="#"
-          className="tracking-wide hover:text-red-600 hover:underline"
-        >
-          projects
-        </a>
-        <a
-          href="#"
-          className="tracking-wide hover:text-red-600 hover:underline"
-        >
-          tools
-        </a>
-      </header>
-
+      <Header />
       <div className="lg:flex p-6 text-gray-900 tracking-tight">
         <div className="hidden lg:block lg:flex-1"></div>
         <div className="lg:flex-1">
