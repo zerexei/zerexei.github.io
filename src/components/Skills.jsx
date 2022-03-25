@@ -41,7 +41,7 @@ const Skills = () => {
   ];
 
   return (
-    <div>
+    <div className="mb-12">
       <h2 className="mb-6 text-2xl font-bold">Skills</h2>
       <div className="flex flex-wrap gap-4 items-center">
         {language_icons.map((icon) => {
