@@ -13,14 +13,23 @@ import js_icon from "./assets/skills/js.jpeg";
 function App() {
   return (
     <div className="font-mono  mx-auto">
-      <header className="bg-blue-200 pt-6 pb-2 h-12 flex justify-center items-center space-x-4 uppercase font-bold text-blue-500">
-        <a href="#" className="tracking-wide hover:text-blue-700">
+      <header className="bg-red-200 pt-6 pb-2 h-12 flex justify-center items-center space-x-4 uppercase font-bold text-red-500">
+        <a
+          href="#"
+          className="tracking-wide hover:text-red-600 hover:underline"
+        >
           Home
         </a>
-        <a href="#" className="tracking-wide hover:text-blue-700">
+        <a
+          href="#"
+          className="tracking-wide hover:text-red-600 hover:underline"
+        >
           projects
         </a>
-        <a href="#" className="tracking-wide hover:text-blue-700">
+        <a
+          href="#"
+          className="tracking-wide hover:text-red-600 hover:underline"
+        >
           tools
         </a>
       </header>
@@ -67,35 +76,41 @@ function App() {
             </p>
             <p className="mb-6">
               If you're interested in hiring me{" "}
-              <a href="#" className="text-blue-500 hover:text-blue-700">
+              <a
+                href="#"
+                className="text-red-500 hover:text-red-600 hover:underline"
+              >
                 check out my resume
               </a>{" "}
               and you can contact me through my{" "}
-              <a href="#" className="text-blue-500 hover:text-blue-700">
+              <a
+                href="#"
+                className="text-red-500 hover:text-red-600 hover:underline"
+              >
                 email
               </a>
               . I am currently looking for web dev contracts/roles.
             </p>
 
-            <div className="flex items-center space-x-2 text-blue-500">
+            <div className="flex items-center space-x-2 text-red-400">
               <a href="#" alt="linkedin link">
-                <FaLinkedin className="w-8 h-8 hover:text-blue-700" />
+                <FaLinkedin className="w-8 h-8 hover:text-red-500" />
               </a>
 
               <a href="#" alt="github link">
-                <FaGithub className="w-8 h-8 hover:text-blue-700" />
+                <FaGithub className="w-8 h-8 hover:text-red-500" />
               </a>
 
               <a href="#" alt="stack overflow link">
-                <FaStackOverflow className="w-8 h-8 hover:text-blue-700" />
+                <FaStackOverflow className="w-8 h-8 hover:text-red-500" />
               </a>
 
               <a href="#" alt="twitter link">
-                <FaTwitter className="w-8 h-8 hover:text-blue-700" />
+                <FaTwitter className="w-8 h-8 hover:text-red-500" />
               </a>
 
               <a href="#" alt="discord link">
-                <FaDiscord className="w-8 h-8 hover:text-blue-700" />
+                <FaDiscord className="w-8 h-8 hover:text-red-500" />
               </a>
             </div>
           </div>
@@ -140,7 +155,7 @@ function App() {
                     <a
                       href="#"
                       alt="project link"
-                      className="mr-2 font-bold text-blue-500 hover:text-blue-700"
+                      className="mr-2 font-bold text-red-500 hover:text-red-600 hover:underline"
                     >
                       Project Tile
                     </a>
@@ -169,7 +184,7 @@ function App() {
                     <a
                       href="#"
                       alt="project link"
-                      className="mr-2 font-bold text-blue-500 hover:text-blue-700"
+                      className="mr-2 font-bold text-red-500 hover:text-red-600 hover:underline"
                     >
                       Project Tile
                     </a>
