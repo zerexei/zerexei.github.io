@@ -19,15 +19,15 @@ const Connect = () => {
         <FaGithub className={iconClassName} />
       </a>
 
-      <a href="#" alt="stack overflow link">
+      <a href="/" alt="stack overflow link">
         <FaStackOverflow className={iconClassName} />
       </a>
 
-      <a href="#" alt="twitter link">
+      <a href="/" alt="twitter link">
         <FaTwitter className={iconClassName} />
       </a>
 
-      <a href="#" alt="discord link">
+      <a href="/" alt="discord link">
         <FaDiscord className={iconClassName} />
       </a>
     </div>

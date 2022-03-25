@@ -23,7 +23,7 @@ const UserDescription = () => {
       </p>
       <p className="mb-6">
         If you're interested in hiring me{" "}
-        <a href="#" className={linkClassName}>
+        <a href="/" className={linkClassName}>
           check out my resume
         </a>{" "}
         and you can contact me through my{" "}

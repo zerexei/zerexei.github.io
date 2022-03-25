@@ -9,7 +9,7 @@ const Projects = () => {
     {
       id: 1,
       title: "Project Ttile 1",
-      url: "#",
+      url: "/",
       role: "Web Developer",
       year: 2022,
       img_url: "https://picsum.photos/200",
@@ -18,7 +18,7 @@ const Projects = () => {
     {
       id: 2,
       title: "Project Ttile 2",
-      url: "#",
+      url: "/",
       role: "Web Developer",
       year: 2022,
       img_url: "https://picsum.photos/200",
@@ -27,7 +27,7 @@ const Projects = () => {
     {
       id: 3,
       title: "Project Ttile 3",
-      url: "#",
+      url: "/",
       role: "Web Developer",
       year: 2022,
       img_url: "https://picsum.photos/200",
@@ -36,7 +36,7 @@ const Projects = () => {
     {
       id: 4,
       title: "Project Ttile 4",
-      url: "#",
+      url: "/",
       role: "Web Developer",
       year: 2022,
       img_url: "https://picsum.photos/200",
@@ -45,7 +45,7 @@ const Projects = () => {
     {
       id: 5,
       title: "Project Ttile 5",
-      url: "#",
+      url: "/",
       role: "Web Developer",
       year: 2022,
       img_url: "https://picsum.photos/200",
