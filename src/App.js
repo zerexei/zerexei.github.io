@@ -1,6 +1,7 @@
 import {
   FaDiscord,
   FaGithub,
+  FaLinkedin,
   FaStackOverflow,
   FaTwitter,
 } from "react-icons/fa";
@@ -77,6 +78,10 @@ function App() {
             </p>
 
             <div className="flex items-center space-x-2 text-blue-500">
+              <a href="#" alt="linkedin link">
+                <FaLinkedin className="w-8 h-8 hover:text-blue-700" />
+              </a>
+
               <a href="#" alt="github link">
                 <FaGithub className="w-8 h-8 hover:text-blue-700" />
               </a>
