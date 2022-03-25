@@ -21,23 +21,23 @@ import responsive_design_url from "./../assets/skills/responsive-design.jpeg";
  */
 const Skills = () => {
   const language_icons = [
-    { name: "HTML", url: html_url },
-    { name: "CSS", url: css_url },
-    { name: "Javascript", url: js_url },
-    { name: "PHP", url: php_url },
-    { name: "SQL", url: sql_url },
-    { name: "Typescript", url: ts_url },
-    { name: "Tailwindcss", url: tailwindcss_url },
-    { name: "React.js", url: react_url },
-    { name: "Laravel", url: laravel_url },
-    { name: "Node.js", url: node_url },
-    { name: "Express.js", url: express_url },
-    { name: "Postgresql", url: postgres_url },
-    { name: "Livewire", url: livewire_url },
-    { name: "Git", url: git_url },
-    { name: "Linux", url: linux_url },
-    { name: "Docker", url: docker_url },
-    { name: "responsive design", url: responsive_design_url },
+    { id: 1, name: "HTML", url: html_url },
+    { id: 2, name: "CSS", url: css_url },
+    { id: 3, name: "Javascript", url: js_url },
+    { id: 4, name: "PHP", url: php_url },
+    { id: 5, name: "SQL", url: sql_url },
+    { id: 6, name: "Typescript", url: ts_url },
+    { id: 7, name: "Tailwindcss", url: tailwindcss_url },
+    { id: 8, name: "React.js", url: react_url },
+    { id: 9, name: "Laravel", url: laravel_url },
+    { id: 10, name: "Node.js", url: node_url },
+    { id: 11, name: "Express.js", url: express_url },
+    { id: 12, name: "Postgresql", url: postgres_url },
+    { id: 13, name: "Livewire", url: livewire_url },
+    { id: 14, name: "Git", url: git_url },
+    { id: 15, name: "Linux", url: linux_url },
+    { id: 16, name: "Docker", url: docker_url },
+    { id: 17, name: "responsive design", url: responsive_design_url },
   ];
 
   return (
@@ -46,7 +46,7 @@ const Skills = () => {
       <div className="flex flex-wrap gap-4 items-center">
         {language_icons.map((icon) => {
           return (
-            <p>
+            <p key={icon.id}>
               <img
                 src={icon.url}
                 alt={icon.name + " icon"}
