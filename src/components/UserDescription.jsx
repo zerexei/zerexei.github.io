@@ -6,13 +6,13 @@ const UserDescription = () => {
       <p className="mb-6">
         Heya I'm Daaave,{" "}
         <span className="font-bold text-black">
-          a web developer with 6+ years experience writting javascript, PHP &
+          a web developer with 6+ years experience writting Javascript, PHP &
           SQL
         </span>
         . I specialize in building web apps using frameworks like
         <span className="font-bold text-black">
           {" "}
-          Tailwindcss, React.js and laravel
+          Tailwindcss, React.js and Laravel
         </span>
         . I am an aspiring web developer from philippines who loves back-end web
         development, I always prioritize in best practices and security to
