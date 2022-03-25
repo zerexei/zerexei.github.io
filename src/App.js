@@ -6,9 +6,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 
-import html_icon from "./assets/skills/html.jpeg";
-import css_icon from "./assets/skills/css.jpeg";
-import js_icon from "./assets/skills/js.jpeg";
+import Skills from "./components/Skills";
 
 function App() {
   return (
@@ -117,32 +115,7 @@ function App() {
 
           {/* ------------ */}
           <div className="mb-12">
-            <h2 className="mb-6 text-2xl font-bold">Skills</h2>
-            <div className="flex space-x-2">
-              <span>
-                <img
-                  src={html_icon}
-                  alt="language icon"
-                  className="object-cover w-12 h-12"
-                />
-              </span>
-
-              <span>
-                <img
-                  src={css_icon}
-                  alt="language icon"
-                  className="object-cover w-12 h-12"
-                />
-              </span>
-
-              <span>
-                <img
-                  src={js_icon}
-                  alt="language icon"
-                  className="object-cover w-12 h-12"
-                />
-              </span>
-            </div>
+            <Skills />
           </div>
 
           {/* ------------ */}
