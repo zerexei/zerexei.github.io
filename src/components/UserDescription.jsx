@@ -1,6 +1,8 @@
 import Connect from "./Connect";
 
 const UserDescription = () => {
+  const linkClassName = "text-red-500 hover:text-red-600 hover:underline";
+
   return (
     <div className="mb-12">
       <p className="mb-6">
@@ -21,11 +23,11 @@ const UserDescription = () => {
       </p>
       <p className="mb-6">
         If you're interested in hiring me{" "}
-        <a href="#" className="text-red-500 hover:text-red-600 hover:underline">
+        <a href="#" className={linkClassName}>
           check out my resume
         </a>{" "}
         and you can contact me through my{" "}
-        <a href="#" className="text-red-500 hover:text-red-600 hover:underline">
+        <a href="mailto:angeloarcillas64@gmail.com" className={linkClassName}>
           email
         </a>
         . I am currently looking for web dev contracts/roles.
