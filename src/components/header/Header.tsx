@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 
 const Header = () => {
   return (
-    <header className="bg-green-700">
+    <header className="shadow-md mb-4">
       <div className="max-w-screen-2xl mx-auto">
         <div className="md:hidden">
           <MobileNavigation />

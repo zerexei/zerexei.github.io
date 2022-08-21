@@ -11,7 +11,7 @@ const Navigation = () => {
   return (
     <div className="flex flex-wrap items-center py-4 px-8">
       <div>
-        <h2 className="text-2xl font-bold uppercase">Angelo Arcillas</h2>
+        <h2 className="text-primary--dark text-2xl font-bold uppercase">Angelo Arcillas</h2>
       </div>
       <nav className="flex-1 flex justify-center">
         {links.map((link) => (
@@ -19,7 +19,7 @@ const Navigation = () => {
             key={link.id}
             label={link.label}
             url={link.url}
-            css="py-2 px-4 hover:text-white"
+            css="py-2 px-4 font-bold"
           />
         ))}
       </nav>

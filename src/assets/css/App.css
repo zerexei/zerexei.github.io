@@ -2,6 +2,64 @@
 
 @import '@/assets/css/header.css';
 
+:root {
+  --primary: #00bfa6;
+  --primary-dark: #009985;
+  --primary-light: #00ffdd;
+}
+
+body {
+  color: var(--primary);
+  font-family: 'Open Sans', sans-serif;
+}
+
+a:hover,
+a:active {
+  color: var(--primary-dark);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-primary--dark {
+  color: var(--primary-dark);
+}
+
+.text-primary--light {
+  color: var(--primary-light);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 1rem;
+  }
+}
+
+p span.highlight {
+  font-weight: 700;
+  color: #777;
+  /* color: var(--primary-dark); */
+  /* color: #4c4c4c; */
+}
+
+p a {
+  color: var(--primary-dark);
+  text-decoration: wavy underline;
+}
+
+p a:hover {
+  text-decoration-style: double;
+}
+
 section {
   height: 100%;
   padding: 3rem 1rem 6rem;
@@ -14,4 +72,11 @@ section:first-child {
 }
 section:last-child {
   clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
+}
+
+svg {
+  cursor: pointer;
+}
+svg:hover {
+color: var(--primary);
 }

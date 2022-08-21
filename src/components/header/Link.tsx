@@ -8,11 +8,15 @@ type LinkProps = {
   url: string;
   label: string;
   css?: string;
+  activeCss?: string;
 };
 
-const Link = ({ url, label, css }: LinkProps) => {
+const Link = ({ url, label, css, activeCss }: LinkProps) => {
+  // @test
+  activeCss = url === '#home' ? 'text-primary--dark' : '';
+
   return (
-    <a href={url} className={css ?? ''}>
+    <a href={url} className={`${css} ${activeCss}`}>
       {label}
     </a>
   );
