@@ -9,7 +9,7 @@ export const links: NavigationLinkType[] = [
 
 const Navigation = () => {
   return (
-    <div className="flex flex-wrap items-center py-4 px-8 bg-red-400">
+    <div className="flex flex-wrap items-center py-4 px-8">
       <div>
         <h2 className="text-2xl font-bold uppercase">Angelo Arcillas</h2>
       </div>

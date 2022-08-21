@@ -5,10 +5,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main className="container p-4 md:p-0">
-        <h1 className="text-3xl font-bold underline text-red-500">
-          Hello world!
-        </h1>
+      <main className="container max-w-screen-2xl mx-auto">
+        {/* <Foo /> */}
       </main>
     </div>
   );
