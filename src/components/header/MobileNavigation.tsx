@@ -1,7 +1,10 @@
 import { useState } from 'react';
+
+// components
 import Link from './Link';
 
-import { NavigationLinkType } from './Link';
+// variables
+import { links } from './Navigation';
 
 const MenuBarIcon = (
   <svg
@@ -10,11 +13,11 @@ const MenuBarIcon = (
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
   >
     <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       d="M4 6h16M4 12h16m-7 6h7"
     />
   </svg>
@@ -27,11 +30,11 @@ const CloseIcon = ({ css }: { css: string }) => (
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
-    stroke-width="2"
+    strokeWidth="2"
   >
     <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       d="M6 18L18 6M6 6l12 12"
     />
   </svg>
@@ -45,12 +48,6 @@ const MobileNavigation = () => {
   };
 
   const title: string = 'Angelo Arcillas';
-  const links: NavigationLinkType[] = [
-    { id: 1, label: 'Home', url: '#home' },
-    { id: 2, label: 'About Me', url: '#about-me' },
-    { id: 3, label: 'Projects', url: '#projects' },
-    { id: 4, label: 'Tools', url: '#tools' },
-  ];
 
   return (
     <div className="mobile-nav">

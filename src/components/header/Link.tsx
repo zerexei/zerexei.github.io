@@ -7,12 +7,12 @@ export interface NavigationLinkType {
 type LinkProps = {
   url: string;
   label: string;
-  css: string;
+  css?: string;
 };
 
 const Link = ({ url, label, css }: LinkProps) => {
   return (
-    <a href={url} className={css}>
+    <a href={url} className={css ?? ''}>
       {label}
     </a>
   );
