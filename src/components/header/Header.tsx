@@ -11,15 +11,15 @@ const Header = () => {
   }
 
   return (
-    <header className="md:flex md:items-center p-4 md:py-0 shadow-md">
+    <header className="md:flex md:items-center p-4 md:py-0 shadow-md md:px-20">
       <div className="md:flex-1 flex justify-between">
-        <h2 className="mb-4 md:mb-0 text-4xl">Foo Bar Baz</h2>
+        <h2 className="mb-4 md:mb-0 text-4xl">FooBar</h2>
         <span className="md:hidden" onClick={() => toggleMobileNav()}>
           <MenuIcon css="w-8 h-8" />
         </span>
       </div>
       <Navigation />
-      {mobileNav && <MobileNavigation />}
+      <MobileNavigation active={mobileNav} />
     </header>
   );
 };

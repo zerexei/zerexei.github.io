@@ -17,6 +17,37 @@ function App() {
             </figure>
             <h2>Angelo Arcillas</h2>
             <h3 className="mb-4">Web Developer</h3>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              doloribus amet nostrum distinctio saepe velit maiores accusantium
+              animi sapiente, omnis quo fugiat veniam doloremque porro tenetur,
+              excepturi inventore natus modi!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              doloribus amet nostrum distinctio saepe velit maiores accusantium
+              animi sapiente, omnis quo fugiat veniam doloremque porro tenetur,
+              excepturi inventore natus modi!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              doloribus amet nostrum distinctio saepe velit maiores accusantium
+              animi sapiente, omnis quo fugiat veniam doloremque porro tenetur,
+              excepturi inventore natus modi!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              doloribus amet nostrum distinctio saepe velit maiores accusantium
+              animi sapiente, omnis quo fugiat veniam doloremque porro tenetur,
+              excepturi inventore natus modi!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+              doloribus amet nostrum distinctio saepe velit maiores accusantium
+              animi sapiente, omnis quo fugiat veniam doloremque porro tenetur,
+              excepturi inventore natus modi!
+            </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
               doloribus amet nostrum distinctio saepe velit maiores accusantium
