@@ -1,13 +1,24 @@
 @import './tailwind.css';
 
-header {
-  min-height: 5rem;
+section {
+  @apply mb-24;
+}
+
+section:first-child {
+  @apply mb-0;
+}
+
+section h2 {
+  @apply mb-8 text-4xl font-bold;
+}
+
+.hr {
+  @apply block my-8;
 }
 
 .nav-link {
-  @apply py-2 px-6 border-b-2 border-b-transparent hover:text-blue-500 hover:border-b-blue-400;
+  @apply tracking-widest border-b-2 border-b-transparent hover:text-blue-400 hover:border-blue-400;
 }
-
 .nav-link--active {
-  @apply text-blue-500 border-b-blue-400;
+  @apply text-blue-400  border-blue-400;
 }

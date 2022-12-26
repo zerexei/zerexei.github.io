@@ -1,4 +1,4 @@
-export const links = [
+const links = [
   { label: 'Home', url: '#', isActive: true }, // main page
   { label: 'Projects', url: 'https://github.com/zerexei', isActive: false }, // scroll down
   { label: 'Tools', url: '#/tools', isActive: false }, // other page
@@ -6,10 +6,11 @@ export const links = [
 
 const Navigation = () => {
   return (
-    <nav className="hidden md:flex text-center">
-      {links.map((link) => {
+    <nav className="flex justify-center items-center gap-4">
+      {links.map((link, index) => {
         return (
           <a
+            key={index}
             href={link.url}
             className={`nav-link ${!link.isActive ? '' : 'nav-link--active'}`}
           >
