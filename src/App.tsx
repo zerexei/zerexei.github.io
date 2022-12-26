@@ -6,9 +6,10 @@ function App() {
     <div className="App h-full bg-gray-50">
       <Header />
       <main>
+        <section>{JSON.stringify(import.meta.env)}</section>
         <section
           className="bg-red-400 relative flex justify-center items-center"
-          style={({ height: '35rem' })}
+          style={{ height: '35rem' }}
         >
           <div className="-mt-40 w-4/5 -rotate-12">
             <h2 className="uppercase text-6xl font-bold">
