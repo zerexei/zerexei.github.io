@@ -4,11 +4,11 @@ import SocialLinks from './SocialLinks';
 export default () => {
   return (
     <section className="h-screen text-center flex flex-col justify-center items-center">
-      <div className="mb-32">
+      <div className="md:mb-24">
         <div className="mb-6">
           <h2 className="text-2xl mb-4">Angelo Arcillas</h2>
           <h3 className="text-xl font-semibold mb-4">
-            Full Stack Web & Mobile Developer
+            Full Stack Web & Android Developer
           </h3>
         </div>
         <div className="mb-6">

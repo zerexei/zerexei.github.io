@@ -1,7 +1,9 @@
+import { NavLink } from 'react-router-dom';
+
 const links = [
-  { label: 'Home', url: '#', isActive: true }, // main page
+  { label: 'Home', url: '/', isActive: true }, // main page
   { label: 'Projects', url: 'https://github.com/zerexei', isActive: false }, // scroll down
-  { label: 'Tools', url: '#/tools', isActive: false }, // other page
+  { label: 'Tools', url: '/tools', isActive: false }, // other page
 ];
 
 const Navigation = () => {
@@ -9,13 +11,13 @@ const Navigation = () => {
     <nav className="flex justify-center items-center gap-4">
       {links.map((link, index) => {
         return (
-          <a
+          <NavLink
             key={index}
-            href={link.url}
+            to={link.url}
             className={`nav-link ${!link.isActive ? '' : 'nav-link--active'}`}
           >
             {link.label}
-          </a>
+          </NavLink>
         );
       })}
     </nav>
