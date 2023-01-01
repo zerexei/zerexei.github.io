@@ -56,7 +56,7 @@ export default () => {
             return (
               <img
                 key={index}
-                src={tech.src}
+                src={`https://raw.githubusercontent.com/zerexei/zerexei.github.io/main${tech.src}`}
                 alt={tech.alt}
                 className="h-12 w-12"
               ></img>
