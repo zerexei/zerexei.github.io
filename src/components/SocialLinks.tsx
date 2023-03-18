@@ -15,7 +15,7 @@ export default () => {
           <a
             key={index}
             href={link.url}
-            className="text-blue-500 border border-blue-400 py-2 px-6 rounded-md hover:underline"
+            className="border border-blue-400 py-2 px-6 rounded-md hover:underline"
           >
             {link.label}
           </a>

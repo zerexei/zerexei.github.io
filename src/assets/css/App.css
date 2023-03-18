@@ -1,24 +1,62 @@
 @import './tailwind.css';
+@import './reset.css';
 
-section {
-  @apply mb-24;
+* {
+  transition: all 0.4s;
 }
 
-section:first-child {
-  @apply mb-0;
+:root {
+  --laravel-active: #f05340;
+  --laravel: #ebb5ad;
+  --vue: #41b883;
+  --dark: #171717;
+  --light: #c4c4c4;
 }
 
-section h2 {
-  @apply mb-8 text-4xl font-bold;
+.text-color-laravel {
+  color: var(--laravel);
 }
 
-.hr {
-  @apply block my-8;
+a:not([class]) {
+  color: var(--laravel);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--laravel-active);
+}
+
+.bug {
+  border: 1px dotted red;
+}
+
+.dark {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.section {
+  padding: 2.5rem 0;
+  @apply flex flex-col justify-center items-center;
+}
+
+/* TODO: separate to files */
+
+.about-me__image {
+  height: 15rem;
 }
 
 .nav-link {
-  @apply tracking-widest border-b-2 border-b-transparent hover:text-blue-400 hover:border-blue-400;
+  @apply text-xl capitalize;
+  padding: 0.25rem;
+  border-bottom: 2px solid transparent;
+  border-radius: 0.25rem;
 }
+
 .nav-link--active {
-  @apply text-blue-400  border-blue-400;
+  border-bottom-color: var(--light);
+}
+
+.nav-link:hover {
+  border-bottom-color: var(--laravel-active);
 }

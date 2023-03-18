@@ -41,6 +41,13 @@ const technologies = [
   { src: '/src/assets/icons/technology/notion.svg', alt: 'notion icon' },
 ];
 
+// https://docs.github.com/en/rest/repos?apiVersion=2022-11-28
+// fetch('https://api.github.com/repos/zerexei/dotfiles/contents/linux')
+fetch(
+  'https://api.github.com/repos/zerexei/dotfiles/contents/windows/.bashrc?ref=main'
+)
+  .then((response) => response.json())
+  .then((json) => console.log(json));
 export default () => {
   return (
     <>
@@ -48,7 +55,7 @@ export default () => {
       <AboutMe />
 
       {/* TECHNOLOGY USED */}
-      <section>
+      <section className="hidden">
         <h2>Technology Used</h2>
         <div className="flex flex-wrap gap-4 px-4 py-6 rounded-md shadow-2xl shadow-gray-400 bg-gray-50 dark:shadow-none">
           {/* TODO: Add condition for width/height */}
