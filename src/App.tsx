@@ -123,7 +123,7 @@ function App() {
           <span
             id="scroll-top"
             onClick={() => scrollTo(0, 0)}
-            className="fixed bottom-5 right-8 p-4 animate-bounce bg-red-400/75 hover:bg-red-400 cursor-pointer rounded-full"
+            className="hidden fixed bottom-5 right-8 p-4 animate-bounce bg-red-400/75 hover:bg-red-400 cursor-pointer rounded-full"
           >
             <UpIcon />
           </span>
