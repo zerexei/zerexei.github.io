@@ -1,12 +1,9 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-} */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
   --primary: #ffb3b3;
   --primary-light: rgba(128, 0, 0, 1);
 
@@ -17,11 +14,16 @@
   --primary-bg-dark: rgba(17, 24, 39, 1);
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .text-primary {
   color: var(--primary-light);
 }
 
 body {
+  overflow-x: hidden;
   color: var(--primary-text-light);
   background-color: var(--primary-bg-light);
 }
