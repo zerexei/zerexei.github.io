@@ -1,4 +1,5 @@
 import './App.css';
+import ComingSoon from './components/ComingSoon';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import UpIcon from './components/icons/UpIcon';
@@ -51,6 +52,8 @@ function App() {
                     technology. A self-motivated, Adept learner and hard working
                     developer who loves back end development.
                   </p>
+                  
+                  <ComingSoon />
                 </div>
                 {/* End of bio */}
               </div>
