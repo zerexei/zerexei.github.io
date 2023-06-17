@@ -1,7 +1,69 @@
+import { useEffect } from 'react';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+
+import {
+  firebase_apiKey,
+  firebase_authDomain,
+  firebase_projectId,
+  firebase_storageBucket,
+  firebase_messagingSenderId,
+  firebase_appId,
+} from '@/config';
+
 const Projects = () => {
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: firebase_apiKey,
+    authDomain: firebase_authDomain,
+    projectId: firebase_projectId,
+    storageBucket: firebase_storageBucket,
+    messagingSenderId: firebase_messagingSenderId,
+    appId: firebase_appId,
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  // Initialize Cloud Firestore and get a reference to the service
+  const db = getFirestore(app);
+
+  async function fetchProjects() {
+    const docRef = collection(db, 'users');
+    const docSnap = await getDocs(docRef);
+
+    if (!docSnap.empty) {
+      docSnap.forEach((doc) => {
+        console.log(doc.id, ' => ', doc.data());
+      });
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log('No such document!');
+    }
+  }
+
+  async function log() {
+    try {
+      const docRef = await addDoc(collection(db, 'users'), {
+        first: 'Ada',
+        last: 'Lovelace',
+        born: 1815,
+      });
+      console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+  }
+
   return (
     <section id="projects" className="pt-6 pb-12">
-      <h2 className="text-center mb-12 text-2xl font-bold tracking-tight sm:text-4xl text-primary">
+      <h2
+        onClick={() => log()}
+        className="text-center mb-12 text-2xl font-bold tracking-tight sm:text-4xl text-primary"
+      >
         Projects
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
