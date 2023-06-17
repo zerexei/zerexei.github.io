@@ -6,7 +6,7 @@ const Header = () => {
       <div className="flex">
         <div></div>
         <div className="flex-1 flex justify-end">
-          <nav className="flex">
+          <nav className="flex flex-wrap">
             <NavLink
               to="/"
               className={({ isActive }) =>
