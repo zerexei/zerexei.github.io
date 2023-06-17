@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 const Header = () => {
   return (
     <header className="">
@@ -5,30 +7,41 @@ const Header = () => {
         <div></div>
         <div className="flex-1 flex justify-end">
           <nav className="flex">
-            <a href="/" className="px-4 py-2  rounded-md hover:underline">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `px-4 py-2  rounded-md hover:underline ${
+                  isActive ? 'text-primary' : ''
+                }`
+              }
+            >
               Home
-            </a>
+            </NavLink>
 
             <a
-              href="#projects"
+              href="/#projects"
               className="px-4 py-2  rounded-md hover:underline"
             >
               Projects
             </a>
 
             <a
-              href="#technologies"
+              href="/#technologies"
               className="px-4 py-2  rounded-md hover:underline"
             >
               Technologies
             </a>
 
-            <a
-              href="#redirect-tools-page"
-              className="px-4 py-2  rounded-md hover:underline"
+            <NavLink
+              to="/tools"
+              className={({ isActive }) =>
+                `px-4 py-2  rounded-md hover:underline ${
+                  isActive ? 'text-primary' : ''
+                }`
+              }
             >
               Tools
-            </a>
+            </NavLink>
 
             <a
               href="https://medium.com/@angeloarcillas64"
@@ -37,8 +50,9 @@ const Header = () => {
               Blogs
             </a>
 
+            {/* external??? */}
             <a
-              href="#redirect-about-me+contact-me-page"
+              href="/#redirect-about-me+contact-me-page"
               className="px-4 py-2  rounded-md hover:underline"
             >
               About Me
