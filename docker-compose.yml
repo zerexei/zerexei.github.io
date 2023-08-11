@@ -1,0 +1,22 @@
+# docker compose version
+version: '3'
+
+services:
+  # service name
+  app:
+    # set Dockerfile location
+    build:
+      # context: ./ # set folder location
+      dockerfile: Dockerfile
+
+    # set location to persist
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+
+    ports:
+      - '8000:8000'
+
+# shared between multiple services
+volumes:
+  node_modules:
