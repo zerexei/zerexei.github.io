@@ -5,7 +5,6 @@ import Home from '@components/home';
 import Tools from '@components/tools';
 
 import './App.css';
-import ProjectInfoModal from './components/Projects/ProjectInfoModal/ProjectInfoModal';
 
 // TODO: update tools to generic names (e.g. vue-ganttastic => gantt chart)
 // - list top 5-10 tools
@@ -20,7 +19,6 @@ function App() {
               <Route path="/tools" Component={Tools} />
               <Route path="/" Component={Home} />
             </Routes>
-          <ProjectInfoModal />
           </main>
           <Footer />
         </div>

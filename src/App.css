@@ -13,11 +13,11 @@
 
 /* Handle */
 .project-info-modal-tools::-webkit-scrollbar-thumb {
-    background: gray;
+    background: rgba(79, 70, 229, .5);
     /* border-top: 30px solid gray; */
 }
 
 /* Handle on hover */
 .project-info-modal-tools::-webkit-scrollbar-thumb:hover {
-    background: darkgray;
+    background: rgba(79, 70, 229, .75);
 }
