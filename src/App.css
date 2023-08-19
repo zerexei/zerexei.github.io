@@ -1,0 +1,23 @@
+.bug {
+    border: 1px solid red;
+}
+
+.project-info-modal-tools::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* Track */
+.project-info-modal-tools::-webkit-scrollbar-track {
+    background: lightgray;
+}
+
+/* Handle */
+.project-info-modal-tools::-webkit-scrollbar-thumb {
+    background: gray;
+    /* border-top: 30px solid gray; */
+}
+
+/* Handle on hover */
+.project-info-modal-tools::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+}

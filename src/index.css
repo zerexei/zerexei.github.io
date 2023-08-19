@@ -18,6 +18,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden;
+  color: var(--primary-text-light);
+  background-color: var(--primary-bg-light);
+}
+
 .text-primary {
   color: var(--primary-light);
 }
@@ -26,9 +32,7 @@
   background-color: var(--primary-light);
 }
 
-body {
-  overflow-x: hidden;
-  color: var(--primary-text-light);
+.bg-main-primary {
   background-color: var(--primary-bg-light);
 }
 
@@ -44,6 +48,10 @@ body {
 
   .bg-primary {
     background-color: var(--primary);
+  }
+
+  .bg-main-primary {
+    background-color: var(--primary-bg-dark);
   }
 }
 
@@ -72,9 +80,11 @@ body {
   #coming-soon h5 {
     font-size: 1.5rem;
   }
+
   #coming-soon div {
     width: 40%;
   }
+
   #coming-soon span {
     font-size: 3rem;
   }
