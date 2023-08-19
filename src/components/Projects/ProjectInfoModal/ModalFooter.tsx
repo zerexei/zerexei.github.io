@@ -15,7 +15,7 @@ const ModalFooter = ({
 }: ModalFooterProps) => {
   return (
     <div className="flex flex-col w-full pb-4 md:pb-6 md:items-end md:flex-row bg-slate-50 dark:bg-slate-700">
-      <div className="flex-1 px-4 text-white sm:px-6">
+      <div className="flex-1 px-4 dark:text-white text-slate-700 sm:px-6">
         <h3 className="text-sm font-medium text-slate-500">{title}</h3>
         <p className="font-semibold">{description}</p>
         <div className="flex gap-2 mt-2 md:w-[25rem] overflow-x-auto select-none project-info-modal-tools">

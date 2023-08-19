@@ -94,9 +94,9 @@ const Projects = () => {
                 key={project.id}
                 className="group/project p-2 min-h-[15rem] cursor-pointer"
               >
-                <div className="flex flex-col w-full h-full p-4 border border-gray-500 rounded-md shadow-md group-hover/project:bg-gray-800 shadow-gray-800">
+                <div className="flex flex-col w-full h-full p-4 border border-transparent rounded-md shadow-md dark:border-gray-500 group-hover/project:bg-gray-800 dark:shadow-gray-800 group-hover/project:text-white">
                   <div className="flex-1 mb-6">
-                    <h5 className="mb-2 text-2xl font-semibold">
+                    <h5 className="mb-2 text-2xl font-semibold ">
                       {project.title}
                     </h5>
                     <p>{project.description}</p>
