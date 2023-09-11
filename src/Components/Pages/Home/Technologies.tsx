@@ -1,4 +1,4 @@
-import UpIcon from '@components/icons/UpIcon';
+import UpIcon from '@/Components/Includes/Icons/UpIcon';
 
 const Technologies = () => {
   const technologies = [

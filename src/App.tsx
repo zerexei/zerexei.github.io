@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import Footer from '@components/Footer';
-import Header from '@components/Header';
-import Home from '@components/home';
-import Tools from '@components/tools';
+import Footer from '@Components/Footer';
+import Header from '@Components/Header';
+import Home from '@Components/Pages/Home/Home';
+import Tools from '@Components/Pages/Tools/Tools';
+import LinkCollection from '@/Components/Pages/LinkCollection/LinkCollection';
+import ScrollTop from '@Components/Includes/ScrollTop';
 
 import './App.css';
 
@@ -16,9 +18,11 @@ function App() {
           <Header />
           <main>
             <Routes>
-              <Route path="/tools" Component={Tools} />
               <Route path="/" Component={Home} />
+              <Route path="/tools" Component={Tools} />
+              <Route path="/link-collection" Component={LinkCollection} />
             </Routes>
+            <ScrollTop />
           </main>
           <Footer />
         </div>

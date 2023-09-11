@@ -1,6 +1,6 @@
-import GenericModal from '../../Includes/Modals/GenericModal';
-import ModalFooter from './ModalFooter';
-import ProjectShowcase from './ProjectShowcase';
+import GenericModal from '@Components/Includes/Modals/GenericModal';
+import ModalFooter from '@Components/Pages/Projects/ProjectInfoModal/ModalFooter';
+import ProjectShowcase from '@Components/Pages/Projects/ProjectInfoModal/ProjectShowcase';
 
 const ProjectInfoModal = ({ project, close }) => {
   return (

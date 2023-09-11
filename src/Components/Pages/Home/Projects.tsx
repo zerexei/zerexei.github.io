@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import projects from '../../assets/projects.json';
-import ProjectInfoModal from '../Projects/ProjectInfoModal/ProjectInfoModal';
+import projects from '../../../assets/projects.json';
+import ProjectInfoModal from '@Components/Pages/Projects/ProjectInfoModal/ProjectInfoModal';
 
 type Project = {
   id: number;

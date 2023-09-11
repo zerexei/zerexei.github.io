@@ -1,4 +1,4 @@
-import UpIcon from '@components/icons/UpIcon';
+import UpIcon from '@/Components/Includes/Icons/UpIcon';
 
 const ScrollTop = () => {
   window.onscroll = () => {
@@ -21,7 +21,7 @@ const ScrollTop = () => {
     <span
       id="scroll-top"
       onClick={() => scrollTo(0, 0)}
-      className="hidden fixed bottom-5 right-8 p-4 animate-bounce bg-red-400/75 hover:bg-red-400 cursor-pointer rounded-full"
+      className="fixed hidden p-4 rounded-full cursor-pointer bottom-5 right-8 animate-bounce bg-red-400/75 hover:bg-red-400"
     >
       <UpIcon />
     </span>
