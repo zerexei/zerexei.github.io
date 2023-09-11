@@ -20,7 +20,7 @@ function App() {
             <Routes>
               <Route path="/" Component={Home} />
               <Route path="/tools" Component={Tools} />
-              <Route path="/link-collection" Component={LinkCollection} />
+              <Route path="/link-collections" Component={LinkCollection} />
             </Routes>
             <ScrollTop />
           </main>
