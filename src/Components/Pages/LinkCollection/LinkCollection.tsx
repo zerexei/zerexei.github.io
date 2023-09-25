@@ -3,7 +3,7 @@ import LaravelIcon from '@/Components/Includes/Icons/dev/LaravelIcon';
 import SassIcon from '@/Components/Includes/Icons/dev/SassIcon';
 import TailwindcssIcon from '@/Components/Includes/Icons/dev/TailwindcssIcon';
 import VuejsIcon from '@/Components/Includes/Icons/dev/VuejsIcon';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const LinkCollection = () => {
   /*
@@ -75,11 +75,17 @@ const InputSearch = () => {
 
 const LinkItem = () => {
   return (
-    <div className="flex items-center justify-between p-4 border border-transparent rounded-md cursor-pointer hover:border-indigo-400">
+    <div className="flex items-center justify-between p-4 border border-transparent rounded-md cursor-pointer group hover:border-indigo-400">
       <div>
-        <h3 className="mb-1 font-semibold cursor-pointer hover:text-indigo-600">
+        <h3 className="mb-1 font-semibold cursor-pointer group-hover:text-indigo-600">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
         </h3>
+        <p className="w-2/3 text-sm text-slate-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, iste.
+          Ut iure fugit totam, harum hic tenetur beatae qui voluptate maiores
+          officiis debitis quidem culpa veniam minus assumenda laudantium!
+          Dolores.
+        </p>
         <h5 className="text-xs tracking-wide text-slate-400">
           Angelo Arcillas
           {/* FIXME: parse &dot; */}
@@ -89,8 +95,8 @@ const LinkItem = () => {
 
       <div className="flex items-center gap-2">
         <AvatarStack />
-        <div className="flex items-center text-slate-400">
-          <p className="inline-block p-1.5 mr-1 rounded-full cursor-pointer hover:bg-indigo-600 transition-colors duration-150">
+        <div className="flex items-center text-slate-400 group-hover:text-indigo-600">
+          <p className="inline-block p-1.5 mr-1 rounded-full transition-colors duration-150">
             <ClickedIcon />
           </p>
           <span className="inline text-xs">64</span>
@@ -102,30 +108,45 @@ const LinkItem = () => {
 
 const AvatarStack = () => {
   return (
-    <div className="flex items-center">
-      <span className="p-2 rounded-full bg-slate-700">
-        <LaravelIcon />
-      </span>
-      <span className="p-2 rounded-full bg-slate-700">
-        <VuejsIcon />
-      </span>
-      <span className="p-2 rounded-full bg-slate-700">
-        <TailwindcssIcon />
-      </span>
-      <span className="p-2 rounded-full bg-slate-700">
-        <SassIcon />
-      </span>
-      <EllipsisVerticalIcon />
+    <div className="flex items-end">
+      <div className="flex items-center -space-x-2">
+        <LaravelIcon className="w-8 h-8 p-1 rounded-full bg-slate-700" />
+        <VuejsIcon className="w-8 h-8 p-1 rounded-full bg-slate-700" />
+        <TailwindcssIcon className="w-8 h-8 p-1 rounded-full bg-slate-700" />
+        <SassIcon className="w-8 h-8 p-1 rounded-full bg-slate-700" />
+      </div>
+      <EllipsisVerticalIcon className="w-6 h-6 text-slate-400" />
     </div>
   );
 };
 
 const ComboBox = () => {
   const [isShow, setIsShow] = useState<boolean>();
+  const componentRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      console.log(isShow);
+      
+      console.log("hit");
+      
+      if (
+        componentRef.current &&
+        !componentRef.current.contains(event.target)
+      ) {
+        setIsShow(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
   return (
-    <div className="relative">
+    <div className="relative" ref={componentRef}>
       <label
-        htmlFor="input-search"
+        htmlFor="filter-tags"
         className="block mb-1 text-sm font-semibold tracking-wide text-slate-400"
       >
         Tags
@@ -134,7 +155,7 @@ const ComboBox = () => {
         onClick={() => setIsShow(!isShow)}
         type="text"
         name="search"
-        id="input-search"
+        id="filter-tags"
         placeholder="tags..."
         autoComplete="off"
         className="px-3.5 w-[15rem] py-2.5 text-sm rounded-md text-slate-700"
@@ -152,7 +173,7 @@ const ComboBox = () => {
   );
 };
 
-const EllipsisVerticalIcon = () => {
+const EllipsisVerticalIcon = ({ className = 'w-6 h-6' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +181,7 @@ const EllipsisVerticalIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className={className}
     >
       <path
         strokeLinecap="round"
