@@ -1,6 +1,6 @@
-const SassIcon = () => {
+const SassIcon = ({className = 'w-6 h-6' }) => {
   return (
-    <svg viewBox="0 0 128 128" className="w-6 h-6">
+    <svg viewBox="0 0 128 128" className={className}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
