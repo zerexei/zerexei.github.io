@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import projects from '../../../assets/projects.json';
+// import projects from '../../../assets/projects.json';
 import ProjectInfoModal from '@Components/Pages/Projects/ProjectInfoModal/ProjectInfoModal';
 
 type Project = {
@@ -11,6 +11,24 @@ type Project = {
   images: string[];
   url: string;
 };
+const projects = [
+  {
+    id: 1,
+    title: 'Lorem Ipsum',
+    description:
+      'Semper auctor neque vitae tempus quam pellentesque nec nam. Imperdiet sed euismod nisi porta lorem. Nec feugiat in fermentum posuere urna nec.',
+    tools: ['laravel', 'vue', 'tailwindcss'],
+    images: [''],
+    url: '#',
+  },
+];
+projects.push(projects[0]);
+projects.push(projects[0]);
+projects.push(projects[0]);
+projects.push(projects[0]);
+projects.push(projects[0]);
+projects.push(projects[0]);
+projects.push(projects[0]);
 // import { initializeApp } from 'firebase/app';
 // import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 
@@ -99,7 +117,7 @@ const Projects = () => {
                     <h5 className="mb-2 text-2xl font-semibold ">
                       {project.title}
                     </h5>
-                    <p>{project.description}</p>
+                    <p className='text-sm text-slate-400'>{project.description}</p>
                   </div>
                   <div className="flex flex-wrap items-end gap-2 ">
                     {project.tools.slice(0, 5).map((tool, index) => {
