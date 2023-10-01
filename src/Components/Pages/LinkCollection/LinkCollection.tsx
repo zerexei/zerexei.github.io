@@ -3,7 +3,7 @@ import LaravelIcon from '@/Components/Includes/Icons/dev/LaravelIcon';
 import SassIcon from '@/Components/Includes/Icons/dev/SassIcon';
 import TailwindcssIcon from '@/Components/Includes/Icons/dev/TailwindcssIcon';
 import VuejsIcon from '@/Components/Includes/Icons/dev/VuejsIcon';
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const LinkCollection = () => {
   /*
@@ -124,11 +124,7 @@ const ComboBox = () => {
   const [isShow, setIsShow] = useState<boolean>();
   const componentRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      console.log(isShow);
-      
-      console.log("hit");
-      
+    const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
       if (
         componentRef.current &&
         !componentRef.current.contains(event.target)
@@ -143,6 +139,7 @@ const ComboBox = () => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
+
   return (
     <div className="relative" ref={componentRef}>
       <label
@@ -151,15 +148,12 @@ const ComboBox = () => {
       >
         Tags
       </label>
-      <input
-        onClick={() => setIsShow(!isShow)}
-        type="text"
-        name="search"
-        id="filter-tags"
-        placeholder="tags..."
-        autoComplete="off"
-        className="px-3.5 w-[15rem] py-2.5 text-sm rounded-md text-slate-700"
-      />
+      <div onClick={() => setIsShow(!isShow)} className="cursor-pointer">
+        <p
+          className="px-3.5 w-[15rem] py-2.5 text-sm rounded-md text-slate-700 cursor-pointer bg-white h-10 select-none"
+        >{`foo,bar,baz,...`}</p>
+        {isShow ? <ChevronDown /> : <ChevronRight />}
+      </div>
       {isShow && (
         <div className="absolute w-full p-2 mt-2 text-sm bg-white rounded text-slate-700">
           <ComboBoxItem />
@@ -172,6 +166,35 @@ const ComboBox = () => {
     </div>
   );
 };
+
+const ChevronDown = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="absolute right-0 w-4 h-4 text-black top-1/2"
+  >
+    <path
+      fillRule="evenodd"
+      d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+const ChevronRight = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="absolute right-0 w-4 h-4 text-black -translate-x-1/2 top-1/2"
+  >
+    <path
+      fillRule="evenodd"
+      d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
 
 const EllipsisVerticalIcon = ({ className = 'w-6 h-6' }) => {
   return (
