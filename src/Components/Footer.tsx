@@ -1,12 +1,13 @@
 const Footer = () => {
   return (
     <footer>
-      <div className="text-center py-6 px-4 container mx-auto text-gray-500 text-sm mt-12">
-        <div className="md:flex justify-between items-center">
+      <div className="container px-4 py-6 mx-auto mt-12 text-sm text-center text-gray-300">
+        <div className="items-center justify-between md:flex">
+          {/* Author */}
           <div className="mb-4 md:mb-0">
             Designed and built with <span className="text-red-500">♥</span> by{' '}
             <a
-              className="hover:underline text-gray-600"
+              className="text-gray-400 hover:underline"
               href="https://github.com/zerexei"
             >
               Angelo Arcillas
@@ -14,8 +15,10 @@ const Footer = () => {
           </div>
 
           <div className="flex justify-center">
+            {/* Facebook */}
             <div className="w-8 text-gray-500">
               <a href="#" className="hover:text-gray-700">
+                <span className="sr-only">social icon</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -26,8 +29,10 @@ const Footer = () => {
               </a>
             </div>
 
+            {/* X */}
             <div className="w-8 ml-2 text-gray-500">
               <a href="#" className="hover:text-gray-700">
+                <span className="sr-only">social icon</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -38,11 +43,13 @@ const Footer = () => {
               </a>
             </div>
 
+            {/* Youtube */}
             <div className="w-8 ml-2 text-gray-500">
               <a
                 href="https://www.youtube.com/@daaaave"
                 className="hover:text-gray-700"
               >
+                <span className="sr-only">social icon</span>
                 <svg
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
@@ -56,11 +63,13 @@ const Footer = () => {
               </a>
             </div>
 
+            {/* Github */}
             <div className="w-8 ml-2 text-gray-500">
               <a
                 href="https://github.com/zerexei"
                 className="hover:text-gray-700"
               >
+                <span className="sr-only">social icon</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
