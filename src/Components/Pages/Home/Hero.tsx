@@ -6,10 +6,10 @@ const Hero = () => {
       {/* Name/Role */}
       <div className="text-center">
         <div className="mb-6">
-          <h2 className="mb-2 text-4xl font-bold tracking-tight sm:text-6xl text-primary">
+          <h1 className="mb-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Angelo Arcillas
-          </h2>
-          <h5 className="text-xl">Web Developer</h5>
+          </h1>
+          <h2 className="text-xl">Web Developer</h2>
         </div>
         {/* End of name/role */}
 
@@ -23,8 +23,6 @@ const Hero = () => {
             software technology. A self-motivated, Adept learner and hard
             working developer who loves back end development.
           </p>
-
-          <ComingSoon />
         </div>
         {/* End of bio */}
       </div>

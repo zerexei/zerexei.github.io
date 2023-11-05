@@ -1,91 +1,118 @@
+/* 
+  ++> Table of Contents <++
+  1. Utilities
+  2. Custom scrollbar
+  2. Animations
+*/
+
 :root {
   box-sizing: border-box;
   scroll-behavior: smooth;
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-  --primary: #ffb3b3;
-  --primary-light: rgba(128, 0, 0, 1);
-
-  --primary-text-dark: rgba(255, 255, 255, 1);
-  --primary-text-light: rgba(17, 24, 39, 1);
-
-  --primary-bg-light: rgba(255, 255, 255, 1);
-  --primary-bg-dark: rgba(17, 24, 39, 1);
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.bug {
+  border: 1px solid red;
+}
+
+
 body {
-  overflow-x: hidden;
-  color: var(--primary-text-light);
-  background-color: var(--primary-bg-light);
+  margin-right: calc(-1 * (100vw - 100%));
+  width: 100%;
+  /* overflow-x: hidden; */
 }
 
-.text-primary {
-  color: var(--primary-light);
-}
-
-.bg-primary {
-  background-color: var(--primary-light);
-}
-
-.bg-main-primary {
-  background-color: var(--primary-bg-light);
-}
-
-@media (prefers-color-scheme: dark) {
+/* @media screen and (min-width:1024px) {
   body {
-    color: var(--primary-text-dark);
-    background-color: var(--primary-bg-dark);
+    margin-right: calc(-1 * (100vw - 100%));
   }
+} */
 
-  .text-primary {
-    color: var(--primary);
-  }
-
-  .bg-primary {
-    background-color: var(--primary);
-  }
-
-  .bg-main-primary {
-    background-color: var(--primary-bg-dark);
-  }
+.w-screen {
+  width: 100vw;
+  max-width: 100%;
 }
 
-#coming-soon h2 {
-  font-size: 5rem;
-  font-weight: bold;
+
+/* +++++> 1.0 Utilities */
+.font-inter {
+  font-family: 'Inter', sans-serif;
 }
 
-#coming-soon div {
-  width: 80%;
-  padding: 2px;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  background-color: #000;
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
 }
 
-#coming-soon p {
-  font-size: 1.5rem;
+.section {
+  /* border: 1px solid red; */
+  margin-bottom: 5rem;
+  padding: 2rem;
 }
 
-#coming-soon span {
-  font-size: 2rem;
+/* HEADING */
+.heading-1 {
+  @apply mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl;
 }
 
-@media screen and (min-width: 640px) {
-  #coming-soon h5 {
-    font-size: 1.5rem;
-  }
-
-  #coming-soon div {
-    width: 40%;
-  }
-
-  #coming-soon span {
-    font-size: 3rem;
-  }
+.heading-2 {
+  @apply text-4xl font-bold;
 }
+
+.heading-3 {
+  @apply text-3xl font-bold;
+}
+
+/* FORMS */
+.label {
+  @apply block mb-px text-sm font-medium;
+}
+
+.input {
+  @apply bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-1 focus:ring-indigo-500 block w-full p-2.5 focus-visible:outline-none focus:border-indigo-500 focus:bg-white;
+}
+
+.button {
+  @apply px-4 py-2 text-sm font-medium rounded-lg;
+}
+
+.button-primary {
+  @apply text-white button hover:bg-indigo-500 bg-indigo-500/90;
+}
+
+.button-secondary {
+  @apply text-white button hover:bg-slate-500 bg-slate-500/90;
+}
+
+.button-success {
+  @apply text-white button hover:bg-teal-500 bg-teal-500/90;
+}
+
+.button-danger {
+  @apply text-white button hover:bg-red-500 bg-red-500/90;
+}
+
+/* ++> 2. Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: lightgray;
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, .5);
+  /* border-top: 30px solid gray; */
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, .75);
+}
+
+/* ++> 3. Animations */

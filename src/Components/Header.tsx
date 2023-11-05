@@ -12,7 +12,7 @@ const NavLinkItem = ({
       to={path}
       className={({ isActive }) =>
         `px-4 py-2  rounded-md hover:underline ${
-          isActive ? 'text-primary' : ''
+          isActive ? 'text-primary dark:text-primary-dark' : 'text-slate-900 dark:text-white'
         }`
       }
     >
@@ -23,7 +23,7 @@ const NavLinkItem = ({
 
 const LinkItem = ({ label, path = '/' }: { label: string; path?: string }) => {
   return (
-    <a href={path} className="px-4 py-2 rounded-md hover:underline">
+    <a href={path} className="px-4 py-2 rounded-md text-slate-900 dark:text-white hover:underline">
       {label}
     </a>
   );
@@ -32,20 +32,15 @@ const LinkItem = ({ label, path = '/' }: { label: string; path?: string }) => {
 const Header = () => {
   return (
     <header className="mb-12 md:mb-0">
-      <div className="flex justify-end flex-1">
-        <nav className="flex flex-wrap">
-          <NavLinkItem path="/" label="Home" />
-          <LinkItem path="/#projects" label="Projects" />
-          <LinkItem path="/#technologies" label="Technologies" />
-          <NavLinkItem path="/tools" label="Tools" />
-          <NavLinkItem path="/link-collections" label="Resources" />
-          <LinkItem path="https://medium.com/@angeloarcillas64" label="Blogs" />
-          <LinkItem
-            path="/#redirect-about-me+contact-me-page"
-            label="About Me"
-          />
-        </nav>
-      </div>
+      <nav className="flex flex-wrap justify-end ">
+        <NavLinkItem path="/" label="Home" />
+        <LinkItem path="/#projects" label="Projects" />
+        <LinkItem path="/#technologies" label="Technologies" />
+        <NavLinkItem path="/tools" label="Tools" />
+        <NavLinkItem path="/link-collections" label="Resources" />
+        <LinkItem path="https://medium.com/@angeloarcillas64" label="Blogs" />
+        <LinkItem path="/#redirect-about-me+contact-me-page" label="About Me" />
+      </nav>
     </header>
   );
 };

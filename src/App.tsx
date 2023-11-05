@@ -12,20 +12,18 @@ import './App.css';
 // - list top 5-10 tools
 function App() {
   return (
-    <div className="w-screen min-h-screen antialiased">
-      <div className="relative w-full py-4 mx-auto max-w-screen-2xl">
-        <div className="max-w-screen-xl px-5 mx-auto">
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" Component={Home} />
-              <Route path="/tools" Component={Tools} />
-              <Route path="/link-collections" Component={LinkCollection} />
-            </Routes>
-            <ScrollTop />
-          </main>
-          <Footer />
-        </div>
+    <div className="min-h-screen antialiased bg-gray-50 text-primary dark:bg-slate-900 dark:text-primary-dark">
+      <div className="relative max-w-screen-xl px-5 mx-auto">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" Component={Home} />
+            <Route path="/tools" Component={Tools} />
+            <Route path="/link-collections" Component={LinkCollection} />
+          </Routes>
+          <ScrollTop />
+        </main>
+        <Footer />
       </div>
     </div>
   );
