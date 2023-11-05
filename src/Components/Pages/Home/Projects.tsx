@@ -22,13 +22,13 @@ const projects = [
     url: '#',
   },
 ];
-projects.push(projects[0]);
-projects.push(projects[0]);
-projects.push(projects[0]);
-projects.push(projects[0]);
-projects.push(projects[0]);
-projects.push(projects[0]);
-projects.push(projects[0]);
+// projects.push(projects[0]);
+// projects.push(projects[0]);
+// projects.push(projects[0]);
+// projects.push(projects[0]);
+// projects.push(projects[0]);
+// projects.push(projects[0]);
+// projects.push(projects[0]);
 // import { initializeApp } from 'firebase/app';
 // import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 
