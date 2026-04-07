@@ -24,10 +24,10 @@ export const projects: Project[] = [
     featured: true,
     featuredDetails: {
       problem: "Managing customer support across multiple platforms (Messenger, Instagram, Viber, etc.) was fragmented and inefficient for businesses.",
-      architecture: "Designed as a modular monolith on AWS, using EC2 for compute, RDS for data, and S3 for storage. Integrated multiple external APIs through a unified service layer.",
+      architecture: "Led end-to-end development of a modular monolith on AWS. Made critical architectural trade-offs between complexity and maintainability to ensure long-term stability and performance.",
       challenges: "Handling real-time synchronization for 10K+ concurrent WebSocket connections and ensuring reliable delivery of ~50K daily events during burst traffic.",
-      solutions: "Implemented asynchronous job pipelines with retry logic and idempotent processing. Optimized database schemas and introduced Redis caching to handle high-frequency queries.",
-      impact: "Reduced query latency by 40% and improved system reliability, leading to faster response times for agents and better customer satisfaction.",
+      solutions: "Implemented asynchronous job pipelines with idempotent processing and Redis caching. Designed concurrency-safe workflows using transactional locking and queue-based distribution.",
+      impact: "As Lead Developer, I owned the system design, managed AWS infrastructure, and collaborated with 2–3 junior developers and cross-functional teams to deliver a production-ready system.",
     },
     demo: "https://smicos.com",
   },

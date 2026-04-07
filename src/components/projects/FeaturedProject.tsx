@@ -58,7 +58,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-zinc-300 font-bold text-sm">
-                <Cpu size={16} className="text-zinc-500" /> Problem
+                <Cpu size={16} className="text-accent/70" /> Context
               </div>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 {project.featuredDetails.problem}
@@ -66,7 +66,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => 
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-zinc-300 font-bold text-sm">
-                <Layers size={16} className="text-zinc-500" /> Architecture
+                <Layers size={16} className="text-accent/70" /> System Design
               </div>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 {project.featuredDetails.architecture}
@@ -74,7 +74,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => 
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-zinc-300 font-bold text-sm">
-                <Shield size={16} className="text-zinc-500" /> Challenges
+                <Shield size={16} className="text-accent/70" /> Engineering Depth
               </div>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 {project.featuredDetails.challenges}
@@ -82,7 +82,7 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => 
             </div>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-zinc-300 font-bold text-sm">
-                <Zap size={16} className="text-zinc-500" /> Impact
+                <Zap size={16} className="text-accent/70" /> Ownership & Leadership
               </div>
               <p className="text-zinc-500 text-sm leading-relaxed">
                 {project.featuredDetails.impact}
