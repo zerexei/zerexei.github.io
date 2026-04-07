@@ -48,12 +48,12 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-zinc-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-zinc-800 bg-zinc-900">
+        <div className="absolute -inset-1 bg-gradient-to-r from-accent to-zinc-600 rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+        <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-zinc-800 bg-zinc-900 group-hover:border-accent/30 transition-colors duration-500">
           <img 
             src="https://github.com/zerexei.png" 
             alt={resumeData.name} 
-            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

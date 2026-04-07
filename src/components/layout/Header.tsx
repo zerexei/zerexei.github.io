@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="text-lg font-bold tracking-tighter">
-          AD<span className="text-zinc-500">.</span>
+          AD<span className="text-accent">.</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
               to={link.path}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-white',
-                location.pathname === link.path ? 'text-white' : 'text-zinc-400'
+                location.pathname === link.path ? 'text-accent' : 'text-zinc-400'
               )}
             >
               {link.name}

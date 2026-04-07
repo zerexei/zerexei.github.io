@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-[#0a0a0a] text-[#ededed] font-sans antialiased selection:bg-primary-500/30;
+    @apply bg-[#0a0a0a] text-[#ededed] font-sans antialiased selection:bg-accent/30 selection:text-white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

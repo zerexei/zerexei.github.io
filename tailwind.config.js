@@ -7,6 +7,11 @@ export default {
       colors: {
         background: '#0a0a0a',
         foreground: '#ededed',
+        accent: {
+          DEFAULT: '#FF2D20',
+          hover: '#E6291D',
+          muted: 'rgba(255, 45, 32, 0.1)',
+        },
         primary: {
           50: '#f8fafc',
           100: '#f1f5f9',

@@ -8,7 +8,7 @@ export const About: React.FC = () => {
     <div className="space-y-16 py-20 animate-slide-up">
       <div className="space-y-4 max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight text-white flex items-center gap-2">
-          <Briefcase className="text-zinc-500" size={24} /> Experience
+          <Briefcase className="text-accent" size={24} /> Experience
         </h2>
         <p className="text-zinc-400 text-lg">
           I've worked on high-scale systems and complex architectures, from startups to established companies.
@@ -17,14 +17,14 @@ export const About: React.FC = () => {
 
       <div className="space-y-12">
         {resumeData.experience.map((exp, index) => (
-          <div key={index} className="relative pl-8 md:pl-0">
+          <div key={index} className="relative pl-8 md:pl-0 group">
             {/* Timeline Line */}
-            <div className="absolute left-0 md:left-48 top-0 bottom-0 w-px bg-zinc-800" />
+            <div className="absolute left-0 md:left-48 top-0 bottom-0 w-px bg-zinc-800 group-hover:bg-accent/20 transition-colors" />
             
             <div className="flex flex-col md:flex-row gap-8">
               {/* Date Column */}
               <div className="md:w-40 md:text-right shrink-0">
-                <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest leading-6 block py-1">
+                <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest leading-6 block py-1 group-hover:text-accent transition-colors">
                   {exp.period}
                 </span>
               </div>
@@ -32,7 +32,7 @@ export const About: React.FC = () => {
               {/* Content Column */}
               <div className="space-y-6 flex-1">
                 <div className="space-y-1">
-                  <h3 className="text-xl font-bold text-white leading-tight">
+                  <h3 className="text-xl font-bold text-white leading-tight group-hover:text-accent transition-colors">
                     {exp.role}
                   </h3>
                   <div className="flex items-center gap-2 text-zinc-400 text-sm">

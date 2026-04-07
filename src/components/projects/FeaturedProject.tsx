@@ -20,14 +20,14 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => 
         </p>
       </div>
 
-      <div className="card bg-zinc-900/40 border-zinc-800 p-8 md:p-12 space-y-12 relative overflow-hidden group">
+      <div className="card bg-zinc-900/40 border-zinc-800 p-8 md:p-12 space-y-12 relative overflow-hidden group hover:border-accent/20">
         {/* Subtle background glow */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 blur-[120px] rounded-full -mr-32 -mt-32 group-hover:bg-primary-500/10 transition-colors duration-500" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[120px] rounded-full -mr-32 -mt-32 group-hover:bg-accent/10 transition-colors duration-500" />
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h3 className="text-4xl font-extrabold tracking-tighter text-white">
+              <h3 className="text-4xl font-extrabold tracking-tighter text-white group-hover:text-accent transition-colors">
                 {project.title}
               </h3>
               <p className="text-zinc-400 text-lg leading-relaxed">

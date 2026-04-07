@@ -9,10 +9,10 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="card p-6 flex flex-col group h-full">
+    <div className="card p-6 flex flex-col group h-full hover:border-accent/20">
       <div className="space-y-4 flex-1">
         <div className="flex items-start justify-between">
-          <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-primary-400 transition-colors">
+          <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-accent transition-colors">
             {project.title}
           </h3>
           <div className="flex items-center gap-3">
