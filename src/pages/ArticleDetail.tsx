@@ -13,7 +13,7 @@ export const ArticleDetail: React.FC = () => {
     return (
       <Section className="py-40 text-center">
         <h1 className="text-3xl font-bold text-white mb-6">Article not found</h1>
-        <Link to="/articles" className="text-primary-400 hover:text-white transition-colors flex items-center justify-center gap-2">
+        <Link to="/articles" className="text-accent hover:text-white transition-colors flex items-center justify-center gap-2">
           <ArrowLeft size={20} /> Back to articles
         </Link>
       </Section>
