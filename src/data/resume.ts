@@ -55,7 +55,7 @@ export const resumeData: ResumeData = {
       company: "Posexei (Startup / Personal Project)",
       role: "Software Engineer (Founder)",
       location: "Remote",
-      period: "Jan 2026 – Present",
+      period: "Jan 2026 - Present",
       description: [
         "Built a multi-service backend system for social media scheduling, using asynchronous workers and service-to-service communication.",
       ],
@@ -64,7 +64,7 @@ export const resumeData: ResumeData = {
         "Applied data modeling and schema design to reduce storage usage in test datasets by ~60% through normalization and removal of duplicate payloads.",
         "Implemented observability (OpenTelemetry, Prometheus) to analyze request flow and identify bottlenecks during simulated load tests.",
       ],
-      technologies: ["FastAPI", "Redis", "PostgreSQL", "Docker", "k6", "OpenTelemetry"],
+      technologies: ["Laravel", "Redis", "PostgreSQL", "Docker", "k6", "OpenTelemetry"],
     },
     {
       company: "PurpleBug Inc.",
