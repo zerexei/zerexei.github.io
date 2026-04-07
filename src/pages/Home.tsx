@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
           <div className="pt-4">
             <a 
               href="mailto:angeloarcillas64@gmail.com" 
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-white rounded-full hover:bg-zinc-200 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-accent rounded-full hover:bg-accent-hover transition-all duration-300 shadow-[0_0_20px_rgba(255,45,32,0.2)] hover:shadow-[0_0_30px_rgba(255,45,32,0.4)] hover:-translate-y-1"
             >
               Get in touch
             </a>
