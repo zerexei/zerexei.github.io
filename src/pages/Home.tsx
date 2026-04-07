@@ -1,0 +1,56 @@
+import React from 'react';
+import { Hero } from '../components/layout/Hero';
+import { About } from '../components/layout/About';
+import { TechStack } from '../components/layout/TechStack';
+import { FeaturedProject } from '../components/projects/FeaturedProject';
+import { ProjectGrid } from '../components/projects/ProjectGrid';
+import { Section } from '../components/common/Section';
+import { projects } from '../data/projects';
+
+export const Home: React.FC = () => {
+  const featuredProject = projects.find(p => p.featured);
+  const otherProjects = projects.filter(p => !p.featured);
+
+  return (
+    <div className="flex flex-col">
+      <Section id="hero" className="border-b border-zinc-900/50">
+        <Hero />
+      </Section>
+      
+      <Section id="about">
+        <About />
+      </Section>
+
+      <Section id="stack" className="bg-zinc-900/20">
+        <TechStack />
+      </Section>
+
+      {featuredProject && (
+        <Section id="featured">
+          <FeaturedProject project={featuredProject} />
+        </Section>
+      )}
+
+      <Section id="projects">
+        <ProjectGrid projects={otherProjects} />
+      </Section>
+
+      <Section id="contact" className="text-center py-40">
+        <div className="max-w-xl mx-auto space-y-8">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Let's build something durable.</h2>
+          <p className="text-zinc-400 text-lg leading-relaxed">
+            I'm always open to discussing backend architecture, system design, or potential collaborations.
+          </p>
+          <div className="pt-4">
+            <a 
+              href="mailto:angeloarcillas64@gmail.com" 
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-white rounded-full hover:bg-zinc-200 transition-colors"
+            >
+              Get in touch
+            </a>
+          </div>
+        </div>
+      </Section>
+    </div>
+  );
+};
