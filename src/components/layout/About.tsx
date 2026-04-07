@@ -11,7 +11,7 @@ export const About: React.FC = () => {
           <Briefcase className="text-accent" size={24} /> Experience
         </h2>
         <p className="text-zinc-400 text-lg">
-          I've worked on high-scale systems and complex architectures, from startups to established companies.
+          I've worked on complex backend systems, focusing on architecture design, asynchronous processing, and performance optimization in production environments.
         </p>
       </div>
 
