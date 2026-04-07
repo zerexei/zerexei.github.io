@@ -52,10 +52,10 @@ export const Header: React.FC = () => {
           ))}
           <div className="h-4 w-px bg-zinc-800" />
           <div className="flex items-center gap-4">
-            <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">
+            <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-accent transition-colors">
               <Github size={18} />
             </a>
-            <a href={`mailto:${resumeData.email}`} className="text-zinc-400 hover:text-white transition-colors">
+            <a href={`mailto:${resumeData.email}`} className="text-zinc-400 hover:text-accent transition-colors">
               <Mail size={18} />
             </a>
           </div>

@@ -17,12 +17,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </h3>
           <div className="flex items-center gap-3">
             {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-accent transition-colors">
                 <Github size={18} />
               </a>
             )}
             {project.demo && (
-              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-accent transition-colors">
                 <ExternalLink size={18} />
               </a>
             )}
