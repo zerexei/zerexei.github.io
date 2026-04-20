@@ -19,25 +19,26 @@ export const projects: Project[] = [
   {
     id: "smicos",
     title: "Smicos",
-    description: "An omnichannel customer support platform integrating multiple messaging services into a unified interface.",
+    description: "A real-time messaging SaaS platform integrating 8+ external platforms, supporting 10K+ concurrent connections and 50K+ daily events.",
     tech: ["Laravel", "Vue.js", "MySQL", "Redis", "AWS", "WebSockets", "Docker"],
     featured: true,
     featuredDetails: {
-      problem: "Managing customer support across multiple platforms (Messenger, Instagram, Viber, etc.) was fragmented and inefficient for businesses.",
-      architecture: "Led end-to-end development of a modular monolith on AWS. Made critical architectural trade-offs between complexity and maintainability to ensure long-term stability and performance.",
-      challenges: "Handling real-time synchronization for 10K+ concurrent WebSocket connections and ensuring reliable delivery of ~50K daily events during burst traffic.",
-      solutions: "Implemented asynchronous job pipelines with idempotent processing and Redis caching. Designed concurrency-safe workflows using transactional locking and queue-based distribution.",
-      impact: "As Lead Developer, I owned the system design, managed AWS infrastructure, and collaborated with 2–3 junior developers and cross-functional teams to deliver a production-ready system.",
+      problem: "Enterprise clients needed a unified, real-time interface to manage customer interactions across fragmented messaging platforms (Messenger, Instagram, Viber, etc.).",
+      architecture: "Designed a real-time, event-driven architecture using WebSockets and asynchronous pipelines. Owned backend architecture, AWS infrastructure, and production support.",
+      challenges: "Eliminating race conditions in multi-user booking scenarios and ensuring system resilience during third-party API failures and traffic spikes.",
+      solutions: "Implemented concurrency-safe workflows using transactional locking and queue-based distribution. Developed Redis-backed idempotent processing pipelines with exponential backoff.",
+      impact: "Reduced database query latency by ~40% through schema optimization. Led production incident response and improved system reliability through enhanced logging and monitoring.",
     },
     demo: "https://smicos.com",
   },
   {
-    id: "posexei",
-    title: "Posexei",
-    description: "Multi-service backend for social media scheduling, focusing on asynchronous processing and distributed systems.",
-    tech: ["Laravel", "PHP", "Redis", "Postgres", "Docker", "k6"],
+    id: "distributed-systems",
+    title: "Distributed Systems Project",
+    description: "Multi-service backend architecture for social media scheduling, exploring asynchronous communication and system performance under load.",
+    tech: ["Python", "FastAPI", "Redis", "PostgreSQL", "Docker", "k6"],
     github: "https://github.com/zerexei/posexei",
   },
+
   {
     id: "observability",
     title: "Observability Stack",
@@ -73,11 +74,13 @@ export const projects: Project[] = [
     tech: ["TypeScript", "React.js", "Peer.js", "WebRTC"],
     github: "https://github.com/zerexei/p2p-file-transfer",
   },
-  {
-    id: "grapejs-components",
-    title: "Web Builder Components",
-    description: "A drag-and-drop web application builder with custom components and real-time preview.",
-    tech: ["GrapesJS", "JavaScript", "Vue.js", "CSS"],
-    github: "https://github.com/zerexei/grapejs-components",
-  },
+//   {
+//     id: "grapejs-web-builder",
+//     title: "Web Builder",
+//     description: "A drag-and-drop web application builder with custom components and real-time preview.",
+//     tech: ["GrapesJS", "JavaScript", "Vue.js", "CSS"],
+//     github: "https://github.com/zerexei/grapejs-components",
+//   },
+
 ];
+

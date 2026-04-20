@@ -40,4 +40,15 @@ export const articles: Article[] = [
     category: "DevOps",
     content: "# Designing Robust CI/CD Pipelines for Backend Services\n\nAutomation is the key to maintaining stability while moving fast. A good CI/CD pipeline should go beyond just building code.",
   },
+  {
+    id: "4",
+    slug: "webhook-reliability",
+    title: "Handling Webhooks at Scale: Reliability and Retries",
+    description: "Strategies for building resilient webhook consumers that can handle high volumes and transient failures.",
+    date: "2024-04-05",
+    readTime: "7 min read",
+    category: "System Design",
+    content: "# Handling Webhooks at Scale: Reliability and Retries\n\nWebhooks are the backbone of many event-driven systems. However, they can be a source of instability if not handled correctly. Here's how I approach building reliable webhook consumers.",
+  },
 ];
+

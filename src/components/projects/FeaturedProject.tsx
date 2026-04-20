@@ -15,10 +15,13 @@ export const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => 
     <div className="py-20 space-y-12">
       <div className="space-y-4 max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight text-white">Featured Project</h2>
+
         <p className="text-zinc-400 text-lg italic">
-          Deep dive into Smicos — a mission-critical omnichannel support system.
+          Deep dive into the architecture and scaling of Smicos.
         </p>
       </div>
+
+
 
       <div className="card bg-zinc-900/40 border-zinc-800 p-8 md:p-12 space-y-12 relative overflow-hidden group hover:border-accent/20">
         {/* Subtle background glow */}

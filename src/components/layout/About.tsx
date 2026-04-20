@@ -60,9 +60,16 @@ export const About: React.FC = () => {
                 <ul className="space-y-3">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i} className="flex gap-3 text-sm">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-zinc-700 shrink-0 group-hover:bg-accent/50 transition-colors" />
-                      <span>{achievement}</span>
+                      <span 
+                        className="mt-2 w-1.5 h-1.5 rounded-full bg-zinc-700 shrink-0 group-hover:bg-accent/50 transition-colors" 
+                      />
+                      <span 
+                        dangerouslySetInnerHTML={{ 
+                          __html: achievement.replace(/\*\*(.*?)\*\*/g, '<strong class="text-zinc-200">$1</strong>') 
+                        }} 
+                      />
                     </li>
+
                   ))}
                 </ul>
               </div>
@@ -76,6 +83,18 @@ export const About: React.FC = () => {
           </div>
         ))}
       </div>
+      <div className="space-y-12">
+        <h3 className="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+          Education
+        </h3>
+        <div className="border-l-2 border-zinc-800 ml-1.5 pl-8 space-y-2">
+          <h4 className="text-lg font-bold text-white">{resumeData.education.degree}</h4>
+          <p className="text-zinc-400 font-medium">
+            {resumeData.education.school} • {resumeData.education.location}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
+

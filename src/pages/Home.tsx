@@ -31,7 +31,9 @@ export const Home: React.FC = () => {
         </Section>
       )}
 
+
       <Section id="projects">
+
         <ProjectGrid projects={otherProjects} />
       </Section>
 
