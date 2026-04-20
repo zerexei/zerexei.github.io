@@ -8,7 +8,7 @@ import { Section } from '../components/common/Section';
 import { projects } from '../data/projects';
 
 export const Home: React.FC = () => {
-  const featuredProjects = projects.filter(p => p.featured);
+  const featuredProject = projects.find(p => p.featured);
   const otherProjects = projects.filter(p => !p.featured);
 
   return (
@@ -25,11 +25,12 @@ export const Home: React.FC = () => {
         <TechStack />
       </Section>
 
-      {featuredProjects.map(project => (
-        <Section id={`featured-${project.id}`} key={project.id}>
-          <FeaturedProject project={project} />
+      {featuredProject && (
+        <Section id="featured">
+          <FeaturedProject project={featuredProject} />
         </Section>
-      ))}
+      )}
+
 
       <Section id="projects">
 

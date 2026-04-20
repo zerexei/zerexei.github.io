@@ -37,15 +37,8 @@ export const projects: Project[] = [
     description: "Multi-service backend architecture for social media scheduling, exploring asynchronous communication and system performance under load.",
     tech: ["Python", "FastAPI", "Redis", "PostgreSQL", "Docker", "k6"],
     github: "https://github.com/zerexei/posexei",
-    featured: true,
-    featuredDetails: {
-      problem: "Designing a scalable social media scheduler that handles high-concurrency job processing and reliable service-to-service communication.",
-      architecture: "Built using Python (FastAPI) and a distributed worker pattern with Redis as the message broker.",
-      challenges: "Evaluating system behavior under heavy load and optimizing storage for large volumes of webhook payloads.",
-      solutions: "Utilized k6 for load testing and performance profiling. Applied normalization and deduplication strategies to data models.",
-      impact: "Reduced test dataset storage usage by ~60% and validated system resilience through rigorous load simulations.",
-    },
   },
+
   {
     id: "observability",
     title: "Observability Stack",
@@ -81,13 +74,13 @@ export const projects: Project[] = [
     tech: ["TypeScript", "React.js", "Peer.js", "WebRTC"],
     github: "https://github.com/zerexei/p2p-file-transfer",
   },
-  {
-    id: "grapejs-web-builder",
-    title: "Web Builder",
-    description: "A drag-and-drop web application builder with custom components and real-time preview.",
-    tech: ["GrapesJS", "JavaScript", "Vue.js", "CSS"],
-    github: "https://github.com/zerexei/grapejs-components",
-  },
+//   {
+//     id: "grapejs-web-builder",
+//     title: "Web Builder",
+//     description: "A drag-and-drop web application builder with custom components and real-time preview.",
+//     tech: ["GrapesJS", "JavaScript", "Vue.js", "CSS"],
+//     github: "https://github.com/zerexei/grapejs-components",
+//   },
 
 ];
 
