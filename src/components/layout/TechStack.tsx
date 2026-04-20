@@ -22,7 +22,7 @@ export const TechStack: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {categories.map((cat) => (
-          <div key={cat.name} className="card p-6 group hover:bg-zinc-900 transition-all hover:border-accent/30">
+          <div key={cat.name} className="lg:first:col-span-2 card p-6 group hover:bg-zinc-900 transition-all hover:border-accent/30">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-zinc-800 rounded-lg text-zinc-400 group-hover:text-accent group-hover:bg-accent/10 transition-colors">
                 <cat.icon size={20} />
