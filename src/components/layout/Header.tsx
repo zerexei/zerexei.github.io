@@ -3,11 +3,23 @@ import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 import { Menu, X, Github, Mail } from 'lucide-react';
 import { resumeData } from '../../data/resume';
+import { useAuth } from '../../utils/useAuth';
+import { auth } from '../../utils/database';
+import { signOut } from 'firebase/auth';
 
 export const Header: React.FC = () => {
+  const { isAuth } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +32,8 @@ export const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Articles', path: '/articles' },
-    { name: 'Login', path: '/login' },
+    { name: 'Cards', path: '/cards' },
+    ...(!isAuth ? [{ name: 'Login', path: '/login' }] : []),
   ];
 
   return (
@@ -51,6 +64,16 @@ export const Header: React.FC = () => {
               {link.name}
             </Link>
           ))}
+          
+          {isAuth && (
+            <button
+              onClick={handleLogout}
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+            >
+              Logout
+            </button>
+          )}
+
           <div className="h-4 w-px bg-zinc-800" />
           <div className="flex items-center gap-4">
             <a href={resumeData.github} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-accent transition-colors">
