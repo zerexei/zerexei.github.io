@@ -4,7 +4,7 @@ import { db } from '../utils/database';
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore/lite';
 import { useAuth } from '../utils/useAuth';
 import { cn } from '../utils/cn';
-import { ChevronRight, RotateCcw, Tag, Award, Brain, Send, Loader2, Sparkles } from 'lucide-react';
+import { ChevronRight, RotateCcw, Tag, Award, Brain, Send, Loader2, Sparkles, Plus, X as CloseIcon } from 'lucide-react';
 
 interface Card {
   id: string;
@@ -13,7 +13,10 @@ interface Card {
   questionPrompt: string;
   tags: string[];
   difficulty: number;
+  cardType: 'recall' | 'understanding' | 'structure' | 'fill-in';
 }
+
+const ADMIN_UID = import.meta.env.VITE_ADMIN_UID;
 
 const TAG_CATEGORIES = {
   "Study Plan": ["Study Plan"],
@@ -36,14 +39,27 @@ const TAG_CATEGORIES = {
 
 export const Flashcards: React.FC = () => {
   const { user } = useAuth();
+  const isAdmin = user?.uid === ADMIN_UID;
+  
   const [cards, setCards] = useState<Card[]>([]);
   const [currentCard, setCurrentCard] = useState<Card | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   
+  // New Card Form State
+  const [newCard, setNewCard] = useState({
+    question: '',
+    fixedAnswer: '',
+    questionPrompt: '',
+    tags: [] as string[],
+    difficulty: 3,
+    cardType: 'recall' as Card['cardType']
+  });
+
   // Deep Mode State
   const [isDeepMode, setIsDeepMode] = useState(() => {
     const saved = localStorage.getItem('deepMode');
@@ -82,7 +98,7 @@ export const Flashcards: React.FC = () => {
       if (fetchedCards.length === 0) {
         // Seed some cards if user has none
         await seedInitialCards();
-        return; // seedInitialCards will trigger another fetch if I want, or just set them
+        return; 
       }
       
       setCards(fetchedCards);
@@ -101,6 +117,7 @@ export const Flashcards: React.FC = () => {
         questionPrompt: 'Explain the difference between controlled and uncontrolled components.',
         tags: ['React', 'Frontend', 'Study Plan'],
         difficulty: 2,
+        cardType: 'understanding',
         userId: user?.uid,
         createdAt: serverTimestamp()
       },
@@ -110,6 +127,7 @@ export const Flashcards: React.FC = () => {
         questionPrompt: 'Define closures in JS.',
         tags: ['JavaScript', 'Fundamentals', 'Recursion'],
         difficulty: 3,
+        cardType: 'recall',
         userId: user?.uid,
         createdAt: serverTimestamp()
       },
@@ -119,6 +137,7 @@ export const Flashcards: React.FC = () => {
         questionPrompt: 'State the average time complexity of QuickSort.',
         tags: ['Sorting', 'Big-O / Complexity', 'Coding Practice'],
         difficulty: 2,
+        cardType: 'recall',
         userId: user?.uid,
         createdAt: serverTimestamp()
       }
@@ -131,6 +150,31 @@ export const Flashcards: React.FC = () => {
       await fetchCards();
     } catch (error) {
       console.error('Error seeding cards:', error);
+    }
+  };
+
+  const handleCreateCard = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isAdmin || !user) return;
+
+    try {
+      await addDoc(collection(db, 'cards'), {
+        ...newCard,
+        userId: user.uid,
+        createdAt: serverTimestamp()
+      });
+      setIsCreateOpen(false);
+      setNewCard({
+        question: '',
+        fixedAnswer: '',
+        questionPrompt: '',
+        tags: [],
+        difficulty: 3,
+        cardType: 'recall'
+      });
+      fetchCards();
+    } catch (error) {
+      console.error('Error creating card:', error);
     }
   };
 
@@ -211,8 +255,19 @@ export const Flashcards: React.FC = () => {
   return (
     <Section id="flashcards" className="min-h-[80vh] flex flex-col items-center justify-center py-20">
       <div className="w-full max-w-2xl px-6 relative">
-        {/* Settings Toggle */}
+        {/* Admin Actions */}
         <div className="absolute -top-12 right-6 flex items-center gap-4">
+          {!hasStarted && isAdmin && (
+            <button 
+              onClick={() => setIsCreateOpen(!isCreateOpen)}
+              className={cn(
+                "p-2 rounded-xl border transition-all duration-300",
+                isCreateOpen ? "bg-accent border-accent text-white" : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700"
+              )}
+            >
+              <Plus size={20} />
+            </button>
+          )}
           <button 
             onClick={() => setIsSettingsOpen(!isSettingsOpen)}
             className={cn(
@@ -223,6 +278,108 @@ export const Flashcards: React.FC = () => {
             <Brain size={20} />
           </button>
         </div>
+
+        {/* Create Card Panel (Floating) */}
+        {isCreateOpen && isAdmin && (
+          <div className="absolute top-0 right-6 w-full max-w-lg p-8 bg-zinc-900/98 backdrop-blur-2xl border border-zinc-800 rounded-3xl animate-slide-up space-y-6 z-[70] shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-accent/20">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Plus size={18} className="text-accent" />
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest">New Flashcard</h3>
+              </div>
+              <button onClick={() => setIsCreateOpen(false)} className="text-zinc-500 hover:text-white transition-colors">
+                <CloseIcon size={20} />
+              </button>
+            </div>
+
+            <form onSubmit={handleCreateCard} className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Question</label>
+                <textarea
+                  required
+                  value={newCard.question}
+                  onChange={e => setNewCard({...newCard, question: e.target.value})}
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50 min-h-[80px]"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Fixed Answer</label>
+                <textarea
+                  required
+                  value={newCard.fixedAnswer}
+                  onChange={e => setNewCard({...newCard, fixedAnswer: e.target.value})}
+                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50 min-h-[80px]"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Question Prompt</label>
+                  <input
+                    required
+                    value={newCard.questionPrompt}
+                    onChange={e => setNewCard({...newCard, questionPrompt: e.target.value})}
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Card Type</label>
+                  <select
+                    value={newCard.cardType}
+                    onChange={e => setNewCard({...newCard, cardType: e.target.value as any})}
+                    className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50"
+                  >
+                    <option value="recall">Recall</option>
+                    <option value="understanding">Understanding</option>
+                    <option value="structure">Structure</option>
+                    <option value="fill-in">Fill-in</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Tags (Select Multiple)</label>
+                <div className="max-h-40 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-zinc-800">
+                  {Object.entries(TAG_CATEGORIES).map(([category, tags]) => (
+                    <div key={category} className="space-y-2">
+                      <p className="text-[9px] text-zinc-600 font-bold uppercase tracking-widest">{category}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {tags.map(tag => (
+                          <button
+                            type="button"
+                            key={tag}
+                            onClick={() => {
+                              const tags = newCard.tags.includes(tag)
+                                ? newCard.tags.filter(t => t !== tag)
+                                : [...newCard.tags, tag];
+                              setNewCard({...newCard, tags});
+                            }}
+                            className={cn(
+                              "px-2 py-1 text-[9px] font-bold rounded-lg border transition-all duration-200",
+                              newCard.tags.includes(tag)
+                                ? "bg-accent/20 border-accent text-accent"
+                                : "bg-zinc-800/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600"
+                            )}
+                          >
+                            {tag}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-4 bg-accent hover:bg-accent/90 text-white rounded-xl font-bold transition-all shadow-[0_0_20px_rgba(255,45,32,0.2)]"
+              >
+                Create Flashcard
+              </button>
+            </form>
+          </div>
+        )}
 
         {/* Filter Panel (Floating) */}
         {isSettingsOpen && (
