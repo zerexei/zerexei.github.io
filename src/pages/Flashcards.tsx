@@ -15,6 +15,25 @@ interface Card {
   difficulty: number;
 }
 
+const TAG_CATEGORIES = {
+  "Study Plan": ["Study Plan"],
+  "Coding Question Practice": ["Coding Practice"],
+  "Topics of Study": [
+    "Big-O / Complexity",
+    "Arrays", "Linked List", "Stack", "Queue", "Hash Table",
+    "BST", "Trees", "Heaps",
+    "Sorting",
+    "Graphs", "BFS", "DFS",
+    "Recursion",
+    "Dynamic Programming",
+    "Design Patterns",
+    "Math & Algorithms",
+    "OS", "Networking", "Concurrency"
+  ],
+  "Final Review": ["Final Review"],
+  "Optional Topics": ["Optional"]
+};
+
 export const Flashcards: React.FC = () => {
   const { user } = useAuth();
   const [cards, setCards] = useState<Card[]>([]);
@@ -22,6 +41,8 @@ export const Flashcards: React.FC = () => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   
   // Deep Mode State
   const [isDeepMode, setIsDeepMode] = useState(() => {
@@ -46,6 +67,10 @@ export const Flashcards: React.FC = () => {
       fetchCards();
     }
   }, [user]);
+
+  const filteredCards = selectedTags.length > 0 
+    ? cards.filter(card => card.tags.some(tag => selectedTags.includes(tag)))
+    : cards;
 
   const fetchCards = async () => {
     setIsLoading(true);
@@ -74,7 +99,7 @@ export const Flashcards: React.FC = () => {
         question: 'What is the difference between a controlled and uncontrolled component in React?',
         fixedAnswer: 'A controlled component is one where React is in charge of the state and is the single source of truth for the data. An uncontrolled component is one where the form data is handled by the DOM itself.',
         questionPrompt: 'Explain the difference between controlled and uncontrolled components.',
-        tags: ['React', 'Frontend'],
+        tags: ['React', 'Frontend', 'Study Plan'],
         difficulty: 2,
         userId: user?.uid,
         createdAt: serverTimestamp()
@@ -83,8 +108,17 @@ export const Flashcards: React.FC = () => {
         question: 'What is a closure in JavaScript?',
         fixedAnswer: 'A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function\'s scope from an inner function.',
         questionPrompt: 'Define closures in JS.',
-        tags: ['JavaScript', 'Fundamentals'],
+        tags: ['JavaScript', 'Fundamentals', 'Recursion'],
         difficulty: 3,
+        userId: user?.uid,
+        createdAt: serverTimestamp()
+      },
+      {
+        question: 'What is the time complexity of QuickSort in the average case?',
+        fixedAnswer: 'O(n log n). QuickSort uses a divide-and-conquer strategy, partitioning the array around a pivot.',
+        questionPrompt: 'State the average time complexity of QuickSort.',
+        tags: ['Sorting', 'Big-O / Complexity', 'Coding Practice'],
+        difficulty: 2,
         userId: user?.uid,
         createdAt: serverTimestamp()
       }
@@ -101,14 +135,14 @@ export const Flashcards: React.FC = () => {
   };
 
   const getRandomCard = () => {
-    if (cards.length === 0) return null;
-    if (cards.length === 1) return cards[0];
+    if (filteredCards.length === 0) return null;
+    if (filteredCards.length === 1) return filteredCards[0];
 
     let nextCard: Card;
     do {
-      const randomIndex = Math.floor(Math.random() * cards.length);
-      nextCard = cards[randomIndex];
-    } while (currentCard && nextCard.id === currentCard.id);
+      const randomIndex = Math.floor(Math.random() * filteredCards.length);
+      nextCard = filteredCards[randomIndex];
+    } while (currentCard && nextCard.id === currentCard.id && filteredCards.length > 1);
 
     return nextCard;
   };
@@ -160,6 +194,12 @@ export const Flashcards: React.FC = () => {
     }, 1500);
   };
 
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+    );
+  };
+
   if (isLoading) {
     return (
       <Section className="min-h-[80vh] flex items-center justify-center">
@@ -170,7 +210,70 @@ export const Flashcards: React.FC = () => {
 
   return (
     <Section id="flashcards" className="min-h-[80vh] flex flex-col items-center justify-center py-20">
-      <div className="w-full max-w-2xl px-6">
+      <div className="w-full max-w-2xl px-6 relative">
+        {/* Settings Toggle */}
+        <div className="absolute -top-12 right-6 flex items-center gap-4">
+          <button 
+            onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+            className={cn(
+              "p-2 rounded-xl border transition-all duration-300",
+              isSettingsOpen ? "bg-accent border-accent text-white" : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700"
+            )}
+          >
+            <Brain size={20} />
+          </button>
+        </div>
+
+        {/* Filter Panel (Floating) */}
+        {isSettingsOpen && (
+          <div className="absolute top-0 right-6 w-full max-w-sm p-6 bg-zinc-900/95 backdrop-blur-xl border border-zinc-800 rounded-3xl animate-slide-up space-y-6 z-[60] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-accent/20">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Brain size={16} className="text-accent" />
+                <h3 className="text-xs font-bold text-white uppercase tracking-widest">Study Filters</h3>
+              </div>
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={() => setSelectedTags([])}
+                  className="text-[10px] text-zinc-500 hover:text-white uppercase tracking-widest font-bold transition-colors"
+                >
+                  Clear
+                </button>
+                <button 
+                  onClick={() => setIsSettingsOpen(false)}
+                  className="text-[10px] text-zinc-500 hover:text-white uppercase tracking-widest font-bold transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+            
+            <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-zinc-800">
+              {Object.entries(TAG_CATEGORIES).map(([category, tags]) => (
+                <div key={category} className="space-y-3">
+                  <h4 className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-1">{category}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {tags.map(tag => (
+                      <button
+                        key={tag}
+                        onClick={() => toggleTag(tag)}
+                        className={cn(
+                          "px-2.5 py-1.5 text-[9px] font-bold rounded-lg border transition-all duration-200",
+                          selectedTags.includes(tag)
+                            ? "bg-accent/20 border-accent text-accent"
+                            : "bg-zinc-800/50 border-zinc-700/50 text-zinc-400 hover:border-zinc-600"
+                        )}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {!hasStarted ? (
           <div className="text-center space-y-8 animate-fade-in">
             <div className="space-y-4">
@@ -191,7 +294,7 @@ export const Flashcards: React.FC = () => {
         ) : (
           <div className="space-y-8 animate-fade-in">
             {/* Deep Mode Toggle */}
-            <div className="flex justify-end">
+            <div className="flex justify-end ">
               <button 
                 onClick={() => setIsDeepMode(!isDeepMode)}
                 className={cn(
