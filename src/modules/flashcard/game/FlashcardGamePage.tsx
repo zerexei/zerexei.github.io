@@ -90,10 +90,10 @@ export const FlashcardGamePage: React.FC = () => {
   };
 
   const model = useModel();
-  const simulateAiValidation = () => {
+  const simulateAiValidation = async () => {
       if (!userAnswer.trim()) return;
       
-      console.log(model.generate("say hello"))
+      console.log(await model.generate("say hello"))
     
     setIsValidating(true);
     setAiResponse(null);
