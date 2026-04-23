@@ -19,6 +19,7 @@ export function useAuth() {
   return {
     user,
     isAuth: !!user,
+    isAdmin: user?.uid === import.meta.env.VITE_FIREBASE_ADMIN_UID,
     loading,
   };
 }

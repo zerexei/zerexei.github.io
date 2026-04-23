@@ -16,12 +16,10 @@ import {
 import { useFlashcards } from '../hooks/useFlashcards';
 import { Flashcard, TAG_CATEGORIES } from '../types/flashcard.types';
 import { Link } from 'react-router-dom';
-
-const ADMIN_UID = import.meta.env.VITE_ADMIN_UID;
+import { useModel } from '@/utils/useModel';
 
 export const FlashcardGamePage: React.FC = () => {
-  const { user } = useAuth();
-  const isAdmin = user?.uid === ADMIN_UID;
+  const { isAdmin } = useAuth();
   
   const { cards, loading, fetchCards } = useFlashcards();
   const [currentCard, setCurrentCard] = useState<Flashcard | null>(null);
@@ -91,8 +89,11 @@ export const FlashcardGamePage: React.FC = () => {
     setIsValidating(false);
   };
 
+  const model = useModel();
   const simulateAiValidation = () => {
-    if (!userAnswer.trim()) return;
+      if (!userAnswer.trim()) return;
+      
+      console.log(model.generate("say hello"))
     
     setIsValidating(true);
     setAiResponse(null);
