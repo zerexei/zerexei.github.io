@@ -101,6 +101,14 @@ import { FlashcardGamePage } from '@/modules/flashcard/game/FlashcardGamePage';
 - **Lucide React**: For consistent iconography.
 - **Tailwind CSS**: For the modular design system.
 
+## Environment Variables
+
+The AI evaluation feature requires a Google Gemini API key. Ensure the following variable is defined in your root `.env` file:
+
+```env
+VITE_GOOGLE_GEN_AI_KEY=your_google_gemini_api_key
+```
+
 ## Extending the Module
 
 ### Adding New Card Types
