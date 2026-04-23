@@ -1,65 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Section } from '../components/common/Section';
-import { db } from '../utils/database';
-import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore/lite';
-import { useAuth } from '../utils/useAuth';
-import { cn } from '../utils/cn';
-import { ChevronRight, RotateCcw, Tag, Award, Brain, Send, Loader2, Sparkles, Plus, X as CloseIcon } from 'lucide-react';
-
-interface Card {
-  id: string;
-  question: string;
-  fixedAnswer: string;
-  questionPrompt: string;
-  tags: string[];
-  difficulty: number;
-  cardType: 'recall' | 'understanding' | 'structure' | 'fill-in';
-}
+import React, { useState, useEffect, useMemo } from 'react';
+import { Section } from '@/components/common/Section';
+import { useAuth } from '@/utils/useAuth';
+import { cn } from '@/utils/cn';
+import { 
+  ChevronRight, 
+  RotateCcw, 
+  Tag, 
+  Award, 
+  Brain, 
+  Send, 
+  Loader2, 
+  Sparkles, 
+  ShieldCheck
+} from 'lucide-react';
+import { useFlashcards } from '../hooks/useFlashcards';
+import { Flashcard, TAG_CATEGORIES } from '../types/flashcard.types';
+import { Link } from 'react-router-dom';
 
 const ADMIN_UID = import.meta.env.VITE_ADMIN_UID;
 
-const TAG_CATEGORIES = {
-  "Study Plan": ["Study Plan"],
-  "Coding Question Practice": ["Coding Practice"],
-  "Topics of Study": [
-    "Big-O / Complexity",
-    "Arrays", "Linked List", "Stack", "Queue", "Hash Table",
-    "BST", "Trees", "Heaps",
-    "Sorting",
-    "Graphs", "BFS", "DFS",
-    "Recursion",
-    "Dynamic Programming",
-    "Design Patterns",
-    "Math & Algorithms",
-    "OS", "Networking", "Concurrency"
-  ],
-  "Final Review": ["Final Review"],
-  "Optional Topics": ["Optional"]
-};
-
-export const Flashcards: React.FC = () => {
+export const FlashcardGamePage: React.FC = () => {
   const { user } = useAuth();
   const isAdmin = user?.uid === ADMIN_UID;
   
-  const [cards, setCards] = useState<Card[]>([]);
-  const [currentCard, setCurrentCard] = useState<Card | null>(null);
+  const { cards, isLoading, fetchCards } = useFlashcards();
+  const [currentCard, setCurrentCard] = useState<Flashcard | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   
-  // New Card Form State
-  const [newCard, setNewCard] = useState({
-    question: '',
-    fixedAnswer: '',
-    questionPrompt: '',
-    tags: [] as string[],
-    difficulty: 3,
-    cardType: 'recall' as Card['cardType']
-  });
-
   // Deep Mode State
   const [isDeepMode, setIsDeepMode] = useState(() => {
     const saved = localStorage.getItem('deepMode');
@@ -79,110 +49,20 @@ export const Flashcards: React.FC = () => {
   }, [isDeepMode]);
 
   useEffect(() => {
-    if (user) {
-      fetchCards();
-    }
-  }, [user]);
+    fetchCards(true); // Only active cards
+  }, [fetchCards]);
 
-  const filteredCards = selectedTags.length > 0 
-    ? cards.filter(card => card.tags.some(tag => selectedTags.includes(tag)))
-    : cards;
-
-  const fetchCards = async () => {
-    setIsLoading(true);
-    try {
-      const q = query(collection(db, 'cards'));
-      const snapshot = await getDocs(q);
-      let fetchedCards = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Card));
-      
-      if (fetchedCards.length === 0) {
-        // Seed some cards if user has none
-        await seedInitialCards();
-        return; 
-      }
-      
-      setCards(fetchedCards);
-    } catch (error) {
-      console.error('Error fetching cards:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const seedInitialCards = async () => {
-    const initialCards = [
-      {
-        question: 'What is the difference between a controlled and uncontrolled component in React?',
-        fixedAnswer: 'A controlled component is one where React is in charge of the state and is the single source of truth for the data. An uncontrolled component is one where the form data is handled by the DOM itself.',
-        questionPrompt: 'Explain the difference between controlled and uncontrolled components.',
-        tags: ['React', 'Frontend', 'Study Plan'],
-        difficulty: 2,
-        cardType: 'understanding',
-        userId: user?.uid,
-        createdAt: serverTimestamp()
-      },
-      {
-        question: 'What is a closure in JavaScript?',
-        fixedAnswer: 'A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function\'s scope from an inner function.',
-        questionPrompt: 'Define closures in JS.',
-        tags: ['JavaScript', 'Fundamentals', 'Recursion'],
-        difficulty: 3,
-        cardType: 'recall',
-        userId: user?.uid,
-        createdAt: serverTimestamp()
-      },
-      {
-        question: 'What is the time complexity of QuickSort in the average case?',
-        fixedAnswer: 'O(n log n). QuickSort uses a divide-and-conquer strategy, partitioning the array around a pivot.',
-        questionPrompt: 'State the average time complexity of QuickSort.',
-        tags: ['Sorting', 'Big-O / Complexity', 'Coding Practice'],
-        difficulty: 2,
-        cardType: 'recall',
-        userId: user?.uid,
-        createdAt: serverTimestamp()
-      }
-    ];
-
-    try {
-      for (const card of initialCards) {
-        await addDoc(collection(db, 'cards'), card);
-      }
-      await fetchCards();
-    } catch (error) {
-      console.error('Error seeding cards:', error);
-    }
-  };
-
-  const handleCreateCard = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isAdmin || !user) return;
-
-    try {
-      await addDoc(collection(db, 'cards'), {
-        ...newCard,
-        userId: user.uid,
-        createdAt: serverTimestamp()
-      });
-      setIsCreateOpen(false);
-      setNewCard({
-        question: '',
-        fixedAnswer: '',
-        questionPrompt: '',
-        tags: [],
-        difficulty: 3,
-        cardType: 'recall'
-      });
-      fetchCards();
-    } catch (error) {
-      console.error('Error creating card:', error);
-    }
-  };
+  const filteredCards = useMemo(() => {
+    return selectedTags.length > 0 
+      ? cards.filter(card => card.tags.some(tag => selectedTags.includes(tag)))
+      : cards;
+  }, [cards, selectedTags]);
 
   const getRandomCard = () => {
     if (filteredCards.length === 0) return null;
     if (filteredCards.length === 1) return filteredCards[0];
 
-    let nextCard: Card;
+    let nextCard: Flashcard;
     do {
       const randomIndex = Math.floor(Math.random() * filteredCards.length);
       nextCard = filteredCards[randomIndex];
@@ -244,7 +124,7 @@ export const Flashcards: React.FC = () => {
     );
   };
 
-  if (isLoading) {
+  if (isLoading && cards.length === 0) {
     return (
       <Section className="min-h-[80vh] flex items-center justify-center">
         <Loader2 className="animate-spin text-accent" size={48} />
@@ -255,19 +135,8 @@ export const Flashcards: React.FC = () => {
   return (
     <Section id="flashcards" className="min-h-[80vh] flex flex-col items-center justify-center py-20">
       <div className="w-full max-w-2xl px-6 relative">
-        {/* Admin Actions */}
+        {/* Settings Toggle */}
         <div className="absolute -top-12 right-6 flex items-center gap-4">
-          {!hasStarted && isAdmin && (
-            <button 
-              onClick={() => setIsCreateOpen(!isCreateOpen)}
-              className={cn(
-                "p-2 rounded-xl border transition-all duration-300",
-                isCreateOpen ? "bg-accent border-accent text-white" : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700"
-              )}
-            >
-              <Plus size={20} />
-            </button>
-          )}
           <button 
             onClick={() => setIsSettingsOpen(!isSettingsOpen)}
             className={cn(
@@ -279,109 +148,7 @@ export const Flashcards: React.FC = () => {
           </button>
         </div>
 
-        {/* Create Card Panel (Floating) */}
-        {isCreateOpen && isAdmin && (
-          <div className="absolute top-0 right-6 w-full max-w-lg p-8 bg-zinc-900/98 backdrop-blur-2xl border border-zinc-800 rounded-3xl animate-slide-up space-y-6 z-[70] shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-accent/20">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Plus size={18} className="text-accent" />
-                <h3 className="text-sm font-bold text-white uppercase tracking-widest">New Flashcard</h3>
-              </div>
-              <button onClick={() => setIsCreateOpen(false)} className="text-zinc-500 hover:text-white transition-colors">
-                <CloseIcon size={20} />
-              </button>
-            </div>
-
-            <form onSubmit={handleCreateCard} className="space-y-4">
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Question</label>
-                <textarea
-                  required
-                  value={newCard.question}
-                  onChange={e => setNewCard({...newCard, question: e.target.value})}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50 min-h-[80px]"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Fixed Answer</label>
-                <textarea
-                  required
-                  value={newCard.fixedAnswer}
-                  onChange={e => setNewCard({...newCard, fixedAnswer: e.target.value})}
-                  className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50 min-h-[80px]"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Question Prompt</label>
-                  <input
-                    required
-                    value={newCard.questionPrompt}
-                    onChange={e => setNewCard({...newCard, questionPrompt: e.target.value})}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Card Type</label>
-                  <select
-                    value={newCard.cardType}
-                    onChange={e => setNewCard({...newCard, cardType: e.target.value as any})}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-accent/50"
-                  >
-                    <option value="recall">Recall</option>
-                    <option value="understanding">Understanding</option>
-                    <option value="structure">Structure</option>
-                    <option value="fill-in">Fill-in</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Tags (Select Multiple)</label>
-                <div className="max-h-40 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-zinc-800">
-                  {Object.entries(TAG_CATEGORIES).map(([category, tags]) => (
-                    <div key={category} className="space-y-2">
-                      <p className="text-[9px] text-zinc-600 font-bold uppercase tracking-widest">{category}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {tags.map(tag => (
-                          <button
-                            type="button"
-                            key={tag}
-                            onClick={() => {
-                              const tags = newCard.tags.includes(tag)
-                                ? newCard.tags.filter(t => t !== tag)
-                                : [...newCard.tags, tag];
-                              setNewCard({...newCard, tags});
-                            }}
-                            className={cn(
-                              "px-2 py-1 text-[9px] font-bold rounded-lg border transition-all duration-200",
-                              newCard.tags.includes(tag)
-                                ? "bg-accent/20 border-accent text-accent"
-                                : "bg-zinc-800/30 border-zinc-700/50 text-zinc-500 hover:border-zinc-600"
-                            )}
-                          >
-                            {tag}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 bg-accent hover:bg-accent/90 text-white rounded-xl font-bold transition-all shadow-[0_0_20px_rgba(255,45,32,0.2)]"
-              >
-                Create Flashcard
-              </button>
-            </form>
-          </div>
-        )}
-
-        {/* Filter Panel (Floating) */}
+        {/* Filter Panel */}
         {isSettingsOpen && (
           <div className="absolute top-0 right-6 w-full max-w-sm p-6 bg-zinc-900/95 backdrop-blur-xl border border-zinc-800 rounded-3xl animate-slide-up space-y-6 z-[60] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-accent/20">
             <div className="flex items-center justify-between">
@@ -603,9 +370,27 @@ export const Flashcards: React.FC = () => {
                 className="text-zinc-500 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <RotateCcw size={14} />
-                Reset
+                Reset session
               </button>
             </div>
+          </div>
+        )}
+
+        {/* Admin entry UI */}
+        {isAdmin && (
+          <div className="mt-20 pt-8 border-t border-zinc-800/50 flex justify-center animate-fade-in">
+            <Link 
+              to="/admin/cards"
+              className="group flex items-center gap-3 px-6 py-3 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800 hover:border-accent/30 rounded-2xl transition-all duration-300"
+            >
+              <div className="p-2 bg-zinc-800 group-hover:bg-accent/10 rounded-lg transition-colors">
+                <ShieldCheck size={18} className="text-zinc-400 group-hover:text-accent" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest leading-none mb-1">Administrator</p>
+                <p className="text-sm font-bold text-white group-hover:text-accent transition-colors">Manage Cards →</p>
+              </div>
+            </Link>
           </div>
         )}
       </div>
