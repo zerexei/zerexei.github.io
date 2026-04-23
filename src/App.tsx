@@ -9,7 +9,7 @@ import Login from "@/pages/Auth/Login";
 import { FlashcardGamePage } from "@/modules/flashcard/game/FlashcardGamePage";
 import { FlashcardAdminPage } from "@/modules/flashcard/admin/FlashcardAdminPage";
 
-const ADMIN_UID = import.meta.env.VITE_ADMIN_UID;
+const ADMIN_UID = import.meta.env.VITE_FIREBASE_ADMIN_UID;
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
