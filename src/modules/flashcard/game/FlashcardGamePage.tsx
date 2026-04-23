@@ -34,7 +34,6 @@ export const FlashcardGamePage: React.FC = () => {
     return saved === 'true';
   });
   const [userAnswer, setUserAnswer] = useState('');
-  const [isValidating, setIsValidating] = useState(false);
   const [aiResponse, setAiResponse] = useState<{
     score: number;
     correct: string[];
@@ -86,37 +85,48 @@ export const FlashcardGamePage: React.FC = () => {
     setIsRevealed(false);
     setUserAnswer('');
     setAiResponse(null);
-    setIsValidating(false);
   };
 
   const model = useModel();
-  const simulateAiValidation = async () => {
-      if (!userAnswer.trim()) return;
-      
-      console.log(await model.generate("say hello"))
+  
+  const aiValidation = async () => {
+    if (!userAnswer.trim() || !currentCard) return;
     
-    setIsValidating(true);
     setAiResponse(null);
+    
+    const prompt = `
+      Evaluate the following flashcard answer.
+      Question: ${currentCard.question}
+      Expected Answer: ${currentCard.fixedAnswer}
+      User's Answer: ${userAnswer}
+      Card Type: ${currentCard.cardType}
+      Difficulty: ${currentCard.difficulty}
+      Tags: ${currentCard.tags.join(', ')}
 
-    // Simulate network delay
-    setTimeout(() => {
-      const mockResponse = {
-        score: Math.floor(Math.random() * 2) + 3, // 3 or 4 or 5
-        correct: [
-          'You correctly identified the core concept.',
-          'Your explanation of the syntax was accurate.'
-        ],
-        missing: [
-          'You could have mentioned the edge cases regarding performance.',
-          'The link to the specific hook was missing.'
-        ],
-        suggestion: 'Try to use more technical terminology like "reconciliation" or "closure scope" to sound more expert.'
-      };
+      Return a JSON object in this format:
+      {
+        "score": number (1-5),
+        "correct": string[],
+        "missing": string[],
+        "suggestion": string
+      }
+      Return ONLY the JSON object. No markdown code blocks, no extra explanation. Be strict but fair in scoring.
+    `;
+
+    try {
+      const response = await model.generate(prompt);
       
-      setAiResponse(mockResponse);
-      setIsValidating(false);
-      setIsRevealed(true);
-    }, 1500);
+      // Clean and parse response
+      const cleanJson = response.replace(/```json|```/g, '').trim();
+      const result = JSON.parse(cleanJson);
+      
+      if (result.score && result.suggestion) {
+        setAiResponse(result);
+        setIsRevealed(true);
+      }
+    } catch (err) {
+      console.error('AI evaluation failed:', err);
+    }
   };
 
   const toggleTag = (tag: string) => {
@@ -268,14 +278,14 @@ export const FlashcardGamePage: React.FC = () => {
                       className="w-full h-32 bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-zinc-300 text-sm focus:outline-none focus:border-accent/50 transition-colors resize-none"
                     />
                     <button
-                      onClick={simulateAiValidation}
-                      disabled={!userAnswer.trim() || isValidating}
+                      onClick={aiValidation}
+                      disabled={!userAnswer.trim() || model.loading}
                       className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black rounded-xl font-bold text-sm hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isValidating ? (
+                      {model.loading ? (
                         <>
                           <Loader2 size={16} className="animate-spin" />
-                          Analyzing with AI...
+                          Evaluating your answer...
                         </>
                       ) : (
                         <>
@@ -284,6 +294,12 @@ export const FlashcardGamePage: React.FC = () => {
                         </>
                       )}
                     </button>
+
+                    {model.error && (
+                      <div className="p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl text-rose-400 text-xs text-center animate-shake">
+                        Something went wrong. Please try again.
+                      </div>
+                    )}
                   </div>
                 )}
 

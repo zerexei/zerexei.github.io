@@ -11,6 +11,7 @@ export function useModel() {
     const generate = async (prompt: string): Promise<string> => {
         setLoading(true);
         setError(null);
+        setResponse("");
 
         try {
             const result = await ai.models.generateContent({
@@ -22,8 +23,6 @@ export function useModel() {
                     }
                 },
             });
-
-            console.log(result)
 
             const text = result.text || "";
             setResponse(text);
