@@ -4,11 +4,11 @@ import { flashcardService } from '../services/flashcardService';
 
 export const useFlashcards = () => {
   const [cards, setCards] = useState<Flashcard[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const fetchCards = useCallback(async (onlyActive = false) => {
-    setIsLoading(true);
+    setLoading(true);
     setError(null);
     try {
       const data = onlyActive 
@@ -19,12 +19,12 @@ export const useFlashcards = () => {
       setError('Failed to fetch flashcards');
       console.error(err);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   }, []);
 
   const createCard = async (card: FlashcardInput) => {
-    setIsLoading(true);
+    setLoading(true);
     try {
       await flashcardService.createFlashcard(card);
       await fetchCards();
@@ -33,12 +33,12 @@ export const useFlashcards = () => {
       console.error(err);
       throw err;
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   const updateCard = async (id: string, card: Partial<FlashcardInput>) => {
-    setIsLoading(true);
+    setLoading(true);
     try {
       await flashcardService.updateFlashcard(id, card);
       setCards(prev => prev.map(c => c.id === id ? { ...c, ...card } : c));
@@ -47,12 +47,12 @@ export const useFlashcards = () => {
       console.error(err);
       throw err;
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   const deleteCard = async (id: string) => {
-    setIsLoading(true);
+    setLoading(true);
     try {
       await flashcardService.deleteFlashcard(id);
       setCards(prev => prev.filter(c => c.id !== id));
@@ -61,7 +61,7 @@ export const useFlashcards = () => {
       console.error(err);
       throw err;
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
@@ -71,7 +71,7 @@ export const useFlashcards = () => {
 
   return {
     cards,
-    isLoading,
+    loading,
     error,
     fetchCards,
     createCard,

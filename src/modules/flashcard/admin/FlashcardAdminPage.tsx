@@ -19,7 +19,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 export const FlashcardAdminPage: React.FC = () => {
-  const { cards, isLoading, fetchCards, createCard, updateCard, deleteCard, toggleActive } = useFlashcards();
+  const { cards, loading, fetchCards, createCard, updateCard, deleteCard, toggleActive } = useFlashcards();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingCard, setEditingCard] = useState<Flashcard | undefined>(undefined);
   const [searchQuery, setSearchQuery] = useState('');
@@ -90,7 +90,7 @@ export const FlashcardAdminPage: React.FC = () => {
         </div>
 
         {/* List */}
-        {isLoading && cards.length === 0 ? (
+        {loading && cards.length === 0 ? (
           <div className="flex items-center justify-center py-20">
             <Loader2 className="animate-spin text-accent" size={40} />
           </div>
@@ -176,7 +176,7 @@ export const FlashcardAdminPage: React.FC = () => {
               </div>
             ))}
 
-            {filteredCards.length === 0 && !isLoading && (
+            {filteredCards.length === 0 && !loading && (
               <div className="text-center py-20 border-2 border-dashed border-zinc-800 rounded-3xl">
                 <p className="text-zinc-500 font-medium">No cards found matching your search.</p>
               </div>

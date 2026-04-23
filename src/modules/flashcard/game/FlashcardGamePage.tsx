@@ -23,7 +23,7 @@ export const FlashcardGamePage: React.FC = () => {
   const { user } = useAuth();
   const isAdmin = user?.uid === ADMIN_UID;
   
-  const { cards, isLoading, fetchCards } = useFlashcards();
+  const { cards, loading, fetchCards } = useFlashcards();
   const [currentCard, setCurrentCard] = useState<Flashcard | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -124,7 +124,7 @@ export const FlashcardGamePage: React.FC = () => {
     );
   };
 
-  if (isLoading && cards.length === 0) {
+  if (loading && cards.length === 0) {
     return (
       <Section className="min-h-[80vh] flex items-center justify-center">
         <Loader2 className="animate-spin text-accent" size={48} />

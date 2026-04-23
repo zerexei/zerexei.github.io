@@ -24,7 +24,7 @@ const ScrollToTop = () => {
 function App() {
   const auth = useAuth();
 
-  if (auth.isLoading) return <div className="min-h-screen flex items-center justify-center bg-black text-white">Loading...</div>;
+  if (auth.loading) return <div className="min-h-screen flex items-center justify-center bg-black text-white">Loading...</div>;
 
   const ProtectedRoute = ({ isAuth }: { isAuth: boolean }) => {
     return isAuth ? <Outlet /> : <Navigate to="/login" replace />;

@@ -5,12 +5,12 @@ import { auth } from "@/utils/database";
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user: User | null) => {
       setUser(user); // user object or null
-      setIsLoading(false);
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -19,6 +19,6 @@ export function useAuth() {
   return {
     user,
     isAuth: !!user,
-    isLoading,
+    loading,
   };
 }

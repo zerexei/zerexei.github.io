@@ -17,11 +17,11 @@ const AuthPage = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
-    setIsLoading(true);
+    setLoading(true);
     setError('');
     try {
       await signInWithPopup(auth, googleProvider);
@@ -29,13 +29,13 @@ const AuthPage = () => {
     } catch (err: any) {
       setError(err.message);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
     setError('');
     try {
       if (isLogin) {
@@ -50,7 +50,7 @@ const AuthPage = () => {
     } catch (err: any) {
       setError(err.message);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
@@ -140,10 +140,10 @@ const AuthPage = () => {
             </div>
 
             <button
-              disabled={isLoading}
+              disabled={loading}
               className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-white rounded-xl font-bold transition-all duration-200 shadow-[0_0_20px_rgba(255,45,32,0.1)]"
             >
-              {isLoading ? (
+              {loading ? (
                 <Loader2 size={20} className="animate-spin" />
               ) : (
                 <>
