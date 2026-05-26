@@ -17,6 +17,7 @@ import { useFlashcards } from "../hooks/useFlashcards";
 import { Flashcard, TAG_CATEGORIES } from "../types/flashcard.types";
 import { Link } from "react-router-dom";
 import { useModel } from "@/utils/useModel";
+import ROUTES from "@/routes";
 
 export const FlashcardGamePage: React.FC = () => {
   const { isAdmin } = useAuth();
@@ -437,7 +438,7 @@ export const FlashcardGamePage: React.FC = () => {
         {isAdmin && (
           <div className="mt-20 pt-8 border-t border-zinc-800/50 flex justify-center animate-fade-in">
             <Link
-              to="/admin/cards"
+              to={ROUTES.admin.flashcards.path}
               className="group flex items-center gap-3 px-6 py-3 bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800 hover:border-accent/30 rounded-2xl transition-all duration-300"
             >
               <div className="p-2 bg-zinc-800 group-hover:bg-accent/10 rounded-lg transition-colors">

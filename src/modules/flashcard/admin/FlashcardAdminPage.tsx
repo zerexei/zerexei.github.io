@@ -17,6 +17,7 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import ROUTES from '@/routes';
 
 export const FlashcardAdminPage: React.FC = () => {
   const { cards, loading, fetchCards, createCard, updateCard, deleteCard, toggleActive } = useFlashcards();
@@ -54,7 +55,7 @@ export const FlashcardAdminPage: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <button 
-              onClick={() => navigate('/cards')}
+              onClick={() => navigate(ROUTES.flashcards.path)}
               className="flex items-center gap-2 text-zinc-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest mb-4"
             >
               <ChevronLeft size={14} />

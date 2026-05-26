@@ -10,6 +10,7 @@ import {
 import { Section } from '@/components/common/Section';
 import { cn } from '@/utils/cn';
 import { Mail, Lock, User, Github, Chrome, Loader2, ArrowRight } from 'lucide-react';
+import ROUTES from '@/routes';
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -25,7 +26,7 @@ const AuthPage = () => {
     setError('');
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate('/cards');
+      navigate(ROUTES.flashcards.path);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -46,7 +47,7 @@ const AuthPage = () => {
           await updateProfile(userCredential.user, { displayName: name });
         }
       }
-      navigate('/cards');
+      navigate(ROUTES.flashcards.path);
     } catch (err: any) {
       setError(err.message);
     } finally {

@@ -1,25 +1,29 @@
-import React from 'react';
-import { Section } from '../components/common/Section';
-import { articles } from '../data/articles';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Clock } from 'lucide-react';
+import React from "react";
+import { Section } from "../components/common/Section";
+import { articles } from "../data/articles";
+import { Link } from "react-router-dom";
+import { ArrowRight, Clock } from "lucide-react";
+import ROUTES from "@/routes";
 
 export const Articles: React.FC = () => {
   return (
     <Section className="py-20 md:py-32">
       <div className="space-y-12">
         <div className="space-y-4 max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Articles</h1>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+            Articles
+          </h1>
           <p className="text-zinc-400 text-lg">
-            Thoughts on backend engineering, system design, and the occasional devops deep-dive.
+            Thoughts on backend engineering, system design, and the occasional
+            devops deep-dive.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-8">
           {articles.map((article) => (
-            <Link 
-              key={article.id} 
-              to={`/articles/${article.slug}`}
+            <Link
+              key={article.id}
+              to={ROUTES.articleDetail.getPath(article.slug)}
               className="group flex flex-col md:flex-row md:items-center justify-between p-8 card hover:bg-zinc-900 transition-all border-zinc-800 hover:border-accent/20"
             >
               <div className="space-y-3 flex-1">
