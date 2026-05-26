@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 src/config.ts
+
+.env
+.env.*
+!.env.example
